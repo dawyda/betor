@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+#login_area{
+	position:relative;
+	width:960px; height:auto !important;
+	min-height:310px;
+	background-color:#f8f8f8;
+	padding-top:20px;
+	font-family: !important Arial, Helvetica, sans-serif;
+}
+#form_cont{
+	position:relative;
+	width:490px;
+	margin:0 auto;
+}
+label{
+	position:relative;
+	display:inline-table;
+	color:#292929;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13pt;
+	width:220px; height:34px;
+	padding-top:5px;
+}
+.txt{
+	position:relative;
+	margin-bottom:30px;
+	top:10px;
+	width:252px;
+	height:30px;
+	border:1px solid #bababa;
+	border-radius:2px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	padding-left:10px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #E5E5E5),
+	color-stop(1, #FFFFFF)
+);
+background-image: -o-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: -moz-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: -webkit-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: -ms-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: linear-gradient(to bottom, #E5E5E5 0%, #FFFFFF 100%);
+}
+#submit{
+	border:2px solid #FFF;
+	box-shadow: 1px 1px 2px #5A5A5A;
+	width:91px; height:40px;
+	cursor:pointer;
+	float:right;
+	font-weight:800;
+	color:#FFF;
+	text-shadow:1px 1px 1px #000;
+	font-size:18px;
+	display:block;
+	border-radius:5px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #5c5c5c),
+	color-stop(1, #7a7a7a)
+);
+background-image: -o-linear-gradient(bottom, #5c5c5c 0%, #7a7a7a 100%);
+background-image: -moz-linear-gradient(bottom, #5c5c5c 0%, #7a7a7a 100%);
+background-image: -webkit-linear-gradient(bottom, #5c5c5c 0%, #7a7a7a 100%);
+background-image: -ms-linear-gradient(bottom, #5c5c5c 0%, #7a7a7a 100%);
+background-image: linear-gradient(to bottom, #5c5c5c 0%, #7a7a7a 100%);
+}
+#error{
+	background-color:#fce2e2;
+	color:#000;
+	font-size:14px;
+	width:360px;
+	padding:15px;
+	margin-bottom:10px;
+	border:1px solid #f51f1c;
+	font-family:!important Arial, Helvetica, sans-serif;
+	line-height:19px;
+}

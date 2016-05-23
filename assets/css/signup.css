@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+#cont{
+	position:relative;
+	width:960px;
+	min-height:840px;
+	margin:0 auto;
+	border:none;
+}
+#main_cont{
+	position:relative;
+	width:960px;
+	min-height:705px;
+	background:#FFFFFF;
+	border:none;
+	padding:0;
+	margin:0;
+}
+#form_left_side{
+	position:absolute;
+	left:80px;
+	width:460px;
+	background:#f8f8f8;
+	height:680px;
+	top:7px;
+	border:1px solid #ececec;
+	border-top:4px solid #000;
+	box-shadow:2px 2px 2px #b4b4b4;
+}
+#form_left_side #black_head{
+	position:relative;
+	top:6px;
+	width:448px;
+	height:47px;
+	background:#000000;
+	margin:0 auto;
+	border-radius:7px;
+	text-align:center;
+}
+#reg_form{
+	position:relative;
+	top:14px;
+}
+#reg_form label{
+	display:inline-table;
+	color:#292929;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13pt;
+	width:150px; height:34px;
+	padding-top:5px;
+	padding-left:22px;
+}
+#reg_form .txt{
+	position:relative;
+	display:inline-block;
+	margin-bottom:13px;
+	top:2px;
+	width:252px;
+	height:30px;
+	border:1px solid #bababa;
+	border-radius:2px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	padding-left:10px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #E5E5E5),
+	color-stop(1, #FFFFFF)
+);
+background-image: -o-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: -moz-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: -webkit-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: -ms-linear-gradient(bottom, #E5E5E5 0%, #FFFFFF 100%);
+background-image: linear-gradient(to bottom, #E5E5E5 0%, #FFFFFF 100%);
+}
+.det_lbl{
+	position:relative;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11pt;
+	color:#09a009;
+	display:block;
+	left:173px;
+}
+#term_sc{
+	position:relative;
+	width:270px;
+	left:173px;
+}
+#reg_form #submit{
+	position:relative;
+	top:10px;
+	display:block;
+	width:220px; height:40px;
+	font-size:18px;
+	font-weight:bold;
+	color:#ffffff;
+	text-shadow:1px 1px 1px #494949;
+	border-radius:5px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #5C5C5C),
+	color-stop(1, #777777)
+);
+background-image: -o-linear-gradient(bottom, #5C5C5C 0%, #777777 100%);
+background-image: -moz-linear-gradient(bottom, #5C5C5C 0%, #777777 100%);
+background-image: -webkit-linear-gradient(bottom, #5C5C5C 0%, #777777 100%);
+background-image: -ms-linear-gradient(bottom, #5C5C5C 0%, #777777 100%);
+background-image: linear-gradient(to bottom, #5C5C5C 0%, #777777 100%);
+border:2px solid white;
+box-shadow:1px 1px 2px #373737;
+}
+#reg_form #submit:hover{
+	cursor:pointer;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(1, #777777),
+	color-stop(1, #5C5C5C)
+);
+background-image: -o-linear-gradient(bottom, #777777 100%, #5C5C5C 100%);
+background-image: -moz-linear-gradient(bottom, #777777 100%, #5C5C5C 100%);
+background-image: -webkit-linear-gradient(bottom, #777777 100%, #5C5C5C 100%);
+background-image: -ms-linear-gradient(bottom, #777777 100%, #5C5C5C 100%);
+background-image: linear-gradient(to bottom, #777777 100%, #5C5C5C 100%);
+}
+#form_right_side{
+	position:absolute;
+	right:0px;
+	width:355px;
+	padding:10px 20px 0px 20px;
+	font-size:16px;
+	height:640px;
+}
+#cap_img{
+	display:inline-block;
+	width:160px;
+	height:75px;
+	border:1px solid #747474;
+}

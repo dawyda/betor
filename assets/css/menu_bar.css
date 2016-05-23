@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+#top-head{
+	position:relative;
+	background:url(/betor/assets/img/top_bg.png);
+	width:960px;
+	height:125px;
+}
+#top-nav{
+	position:relative;
+}
+#top-nav ul{
+	position:relative;
+	top:5px;
+	left:50px;
+	font-size:9.2pt;
+}
+#top-nav ul li{
+	float:left;
+	list-style:none;
+	text-align:center;
+}
+#top-nav ul li a{
+	display:block;
+	width:60pt; height:15px;
+	color:#23ff0c;
+	text-decoration:none;
+	border-right:1px solid #23ff0c;
+	margin:2px;
+}
+#top-nav ul li a:hover{
+	text-decoration:underline;
+}
+#main-nav{
+	position:absolute;
+	bottom:13px;
+	background:url(/betor/assets/img/menu_nav_bg.png) repeat-x;
+	width:840px;
+	height:48px;
+	border:1px solid #b81902;
+	border-top-right-radius:6px;
+	border-bottom-right-radius:6px;
+	box-shadow:1px 1px 2px #0F0F0F;
+}
+#main-nav ul{
+	position:relative;
+	top:0px;
+	left:-16px;
+	height:inherit;
+}
+#main-nav ul li{
+	list-style:none;
+	height:inherit;
+	float:left;
+	padding-left:15px;
+	padding-right:15px;
+}
+#main-nav ul li a{
+	display:block;
+	width:auto;
+	height:35px;
+	padding:13px 5px 0px 5px;
+	text-decoration:none;
+	font-size:16px;
+	color:#ffff00;
+	text-shadow:1px 1px 1px #141414;
+	outline:none;
+}
+#main-nav ul li a:hover{
+	background:#6f1001;
+	padding:14px 5px 0px 5px;
+	height:34px;
+	transition:background 300ms ease-out;
+}
+.clear{
+	clear:both;
+}
+#login{
+	position:absolute;
+	right:3px;
+	top:2px;
+}
+#login #email{
+	position:relative;
+	padding:2px;
+	width:155px;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	border-radius:4px;
+	border:1px solid #24ff0e;
+}
+#login #password{
+	position:relative;
+	padding:2px;
+	width:115px;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	border-radius:4px;
+	border:1px solid #24ff0e;
+}
+#login #submit{
+	position:relative;
+	top:15px;
+	padding:2px;
+	width:24px;
+	height:25px;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+#login_form input.txt:focus{
+	background:#EFEFEF;
+	box-shadow:1px 1px 2px #24ff0e;
+}
