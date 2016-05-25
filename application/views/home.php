@@ -116,7 +116,7 @@ if(isset($_SESSION["logged"])){
                         <li style="width:70px;">1</li>
                         <li style="width:70px;">X</li>
                         <li style="width:70px;">2</li>
-						<li style="width:100px;">Outcome</li>
+						<li style="width:100px;">FT Result</li>
 						<li style="width:30px;">@</li>
                         <!--<li style="width:150px;">League</li>
                         <li style="width:110px; border:none;" >Game Type</li>-->
@@ -128,53 +128,53 @@ if(isset($_SESSION["logged"])){
                     <div class="listdiv" style="color:#000;">
                     	<ul class="match_list_ul">
                         	<li style="width:110px; padding-top:10px;">09-03 09:00 PM</li>
-                            <li style="width:260px; text-decoration:underline;" class="padli"><a href="#" id="3"><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Man City - Man United</span></a></li>
-							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold;">1x</a></li>
+                            <li style="width:260px; text-decoration:underline;" class="padli"><a href="#" id="3"><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Tottenham - Man United</span></a></li>
+							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold; font-size:9.5pt; color:#F7950C;">12</a></li>
 							<li style="width:80px;" class="padli"><a href="#" id="3">10</a></li>
                             <li style="width:70px;" class="padli"><a href="#">2.66</a></li>
                             <li style="width:70px;" class="padli"><a href="#">3.04</a></li>
                             <li style="width:70px;" class="padli"><a href="#">7.86</a></li>
-							<li style="width:100px;" class="padli"><a href="#" id="3">2:1</a></li>
-							<li style="width:30px;" class="padli"><a href="#" id="3"><span style="background-color:green; left:9px; position:relative; width:10px; height:inherit; color:green;">1</span></a></li>
+							<li style="width:100px;" class="padli"><a href="#" id="3">2 : 1</a></li>
+							<li style="width:30px;" class="padli"><a href="#" id="3"><div class="win"></div></a></li>
                         </ul>
                     </div>
 					<div class="listdiv" style="color:#000;background-color:#F2F2F2;">
                     	<ul class="match_list_ul">
                         	<li style="width:110px; padding-top:10px;">09-03 09:00 PM</li>
                             <li style="width:260px; text-decoration:underline;" class="padli"><a href="#" id="3"><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Man City - Man United</span></a></li>
-							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold;">1x</a></li>
+							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold; font-size:9.5pt; color:#F7950C;">X</a></li>
 							<li style="width:80px;" class="padli"><a href="#" id="3">10</a></li>
                             <li style="width:70px;" class="padli"><a href="#">2.22</a></li>
                             <li style="width:70px;" class="padli"><a href="#">3.56</a></li>
                             <li style="width:70px;" class="padli"><a href="#">2.47</a></li>
-							<li style="width:100px;" class="padli"><a href="#" id="3">2:1</a></li>
-							<li style="width:30px;" class="padli"><a href="#" id="3"><span style="background-color:green; left:9px; position:relative; width:10px; height:inherit; color:green;">1</span></a></li>
+							<li style="width:100px;" class="padli"><a href="#" id="3">0 : 0</a></li>
+							<li style="width:30px;" class="padli"><a href="#" id="3"><div class="win"></div></a></li>
                         </ul>
                     </div>
 					<div class="listdiv" style="color:#000;">
                     	<ul class="match_list_ul">
                         	<li style="width:110px; padding-top:10px;">09-03 09:00 PM</li>
                             <li style="width:260px; text-decoration:underline;" class="padli"><a href="#" id="3"><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Man City - Man United</span></a></li>
-							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold;">1x</a></li>
+							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold; font-size:9.5pt; color:#F7950C;">1X</a></li>
 							<li style="width:80px;" class="padli"><a href="#" id="3">10</a></li>
                             <li style="width:70px;" class="padli"><a href="#">2.66</a></li>
                             <li style="width:70px;" class="padli"><a href="#">3.04</a></li>
                             <li style="width:70px;" class="padli"><a href="#">7.86</a></li>
-							<li style="width:100px;" class="padli"><a href="#" id="3">2:1</a></li>
-							<li style="width:30px;" class="padli"><a href="#" id="3"><span style="background-color:#f2f2f2; left:9px; position:relative; width:10px; height:inherit; color:#f2f2f2;">1</span></a></li>
+							<li style="width:100px;" class="padli"><a href="#" id="3">0 : 3</a></li>
+							<li style="width:30px;" class="padli"><a href="#" id="3"><div class="lose"></div></a></li>
                         </ul>
                     </div>
 					<div class="listdiv" style="color:#000;background-color:#F2F2F2;">
                     	<ul class="match_list_ul">
                         	<li style="width:110px; padding-top:10px;">09-03 09:00 PM</li>
                             <li style="width:260px; text-decoration:underline;" class="padli"><a href="#" id="3"><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Man City - Man United</span></a></li>
-							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold;">1x</a></li>
+							<li style="width:80px;" class="padli"><a href="#" id="3" style="font-weight:bold; font-size:9.5pt; color:#F7950C;">1X</a></li>
 							<li style="width:80px;" class="padli"><a href="#" id="3">10</a></li>
                             <li style="width:70px;" class="padli"><a href="#">2.22</a></li>
                             <li style="width:70px;" class="padli"><a href="#">3.56</a></li>
                             <li style="width:70px;" class="padli"><a href="#">2.47</a></li>
-							<li style="width:100px;" class="padli"><a href="#" id="3">2:1</a></li>
-							<li style="width:30px;" class="padli"><a href="#" id="3"><span style="background-color:green; left:9px; position:relative; width:10px; height:inherit; color:green;">1</span></a></li>
+							<li style="width:100px;" class="padli"><a href="#" id="3">2 : 1</a></li>
+							<li style="width:30px;" class="padli"><a href="#" id="3"><div class="win"></div></a></li>
                         </ul>
                     </div>
                     <!--match list full end -->

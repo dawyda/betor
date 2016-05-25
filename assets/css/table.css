@@ -72,7 +72,7 @@
 #table_cont #match_list_cont div.listdiv{
 	display:block;
 	width:inherit;
-	height:33px;
+	height:28px;
 	border-bottom:1px solid #2cb5ff;
 }
 #table_cont #match_list_cont div.listdiv .match_list_ul{
@@ -80,7 +80,7 @@
 	cursor:default;
 	display:block;
 	width:inherit;
-	height:33px;
+	height:28px;
 	list-style-type:none;
 	padding:0;
 }
@@ -107,12 +107,12 @@ li.padli a{
 	position:relative;
 	text-decoration:none;
 	color:inherit;
-	padding-top:10px;
+	padding-top:6px;
 	outline:none;/*#5B5B5B;*/
 }
-li.padli a:hover{
+/* li.padli a:hover{
 	text-decoration:underline;
-}
+} */
 li.padli a.better{
 	position:relative;
 	top:4px;
@@ -230,4 +230,22 @@ li a.betCancel{
 li a.betCancel:hover{
 	border-color:#FFF;
 	padding-top:1px; height:13px;
+}
+div .win{
+	width:18px; height:15px; display:block; color:white; background-color:#31962C; font-size:12px;
+	left:15px; position:relative; font-weight:bold;
+	padding-top:3px;
+	border-radius:4px;
+}
+div .win:before{
+	content:"W";
+}
+div .lose{
+	width:18px; height:16px; display:block; color:white; background-color:#F52F2F; font-size:12px;
+	left:15px; position:relative; font-weight:bold;
+	padding-top:2px;
+	border-radius:4px;
+}
+div .lose:before{
+	content:"L";
 }
