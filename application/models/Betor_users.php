@@ -18,7 +18,10 @@ Class Betor_Users extends CI_Model {
             $data["password"] = $password;
             $query = $this->db->select('id')->where($data)->get('users');
             if($query->num_rows() > 0){
-                //user exists
+                //user exists ...set last login then return.
+                $this->db->set('last_login', 'NOW()',FALSE);
+                $this->db->where('username', $data["username"]);
+                $this->db->update('users');
                 return TRUE;
             }
             else{
@@ -29,13 +32,35 @@ Class Betor_Users extends CI_Model {
     }
     
     public function get_user_info($username){
-        $query = $this->db->select('*')->where('username',$username)->get('users');
+        $query = $this->db->select('*')->where('username', $username)->get('users');
         return $row = $query->row_array();
     }
     
-    public function get_user_credit_bal($user_id)
+    public function get_user_credit($user_id)
     {
-        $query = $this->db->select('balance,last_pay_id')->where('user_id', $user_id)->get('credits');
-        return $row = $query->row();
+        $this->db->select('balance, expiry, last_trans_id');
+        $this->db->from('credits');
+        $this->db->where('user_id',$user_id);
+        $query = $this->db->get();
+        return $row = $query->row_array();
+    }
+    
+    public function add_new_user($user)
+    {
+        $temp_pass = $user["password"];
+        $user["password"] = "tempholder";
+        
+        if($this->db->insert("users", $user))
+        {
+            $userid = $this->db->insert_id();
+            $query = $this->db->select('creation_date')->where('id', $userid)->get('users')->row();
+            //run update with hashed password.
+            $this->db->set('password', sha1($temp_pass.$query->creation_date));
+            $this->db->where('id', $userid);
+            $this->db->update('users');
+            
+            return TRUE;
+        }
+        else{ return FALSE; }        
     }
 }

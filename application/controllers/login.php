@@ -42,7 +42,6 @@ class Login extends CI_Controller {
 			if($pass){	
 				$this->session->logged = TRUE;
 				$this->session->username = $logins["username"];
-				$this->session->userid = $logins["id"];
 				redirect('home/profile/');
 			}
 			else{

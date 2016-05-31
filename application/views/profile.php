@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="/betor/assets/css/profile.css" type="text/css" media="screen" />
 <link REL="SHORTCUT ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
 <link REL="ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
-<script type="text/javascript" src="js/jquery-1.4.min.js"></script>
-<script type="text/javascript" src="js/profile.js"></script>
+<script type="text/javascript" src="/betor/assets/js/jquery-1.4.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/js/profile.js"></script>
 <title>Profile(<?php echo $_SESSION["username"]; ?>) | Mybets.com</title>
 </head>
 <body>
@@ -30,21 +30,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="clear"></div>
             <div id="main-nav">
             	<ul>
-                	<li><a href="games.php">View tips</a></li>
+                	<li><a href="<?=base_url();?>home">Home</a></li>
                     <li><a href="mybets.php">Value Bets</a></li>
                     <li><a href="withdraw.php">Buy Credits</a></li>
                     <li><a href="#">Notifications</a></li>
                     <li><a href="changepwd.php">Change Password</a></li>
-                    <li style="float:right;"><a href="logout.php">Logout [<?php echo $_SESSION["username"]; ?>]</a></li>
+                    <li style="float:right;"><a href="<?=base_url();?>logout">Logout [<?php echo $_SESSION["username"]; ?>]</a></li>
                 </ul>
             </div>
         </div>
         <div id="profile_area">
         	<div id="announce_tab">
-            	MY ACCOUNT<span style="padding-left:33px;">This page shows all your account information.</span>
+            	MY ACCOUNT<span style="padding-left:33px;">This page shows your account information. Your account has to be verified to use premium services.</span>
             </div>
             <div id="prof_tab">
-            	<img src="images/icons/prof_pic.png" id="prof_pic" /><div style="position:relative; float:right; right:55px;"><label style="display:block; margin-bottom:3px; font-size:16px;">Phone Number Verification</label><input type="text" disabled="disabled" name="verified" id="verified" class="pro_txt" value="<?php
+            	<img src="/betor/assets/img/prof_pic.png" id="prof_pic" /><div style="position:relative; float:right; right:55px;"><label style="display:block; margin-bottom:3px; font-size:16px;">Email Verification</label><input type="text" disabled="disabled" name="verified" id="verified" class="pro_txt" value="<?php
 				 if($confirmed == 0){
 					echo "Not verified";
 				}
@@ -71,14 +71,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </form>
                 </div>
                 <div id="prof_account">
-                	<h2 class="tabs">Funds Account Information</h2>
+                	<h2 class="tabs">Credits Account Information</h2>
                     <form id="form_account" action="" method="post">
-                    	<label style="display:inline-block; margin-bottom:3px; font-size:16px;">Pay address</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="width:297px;" value="<?php echo $account_info['pay_address']; ?>" />
-                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Pay short-code</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $personal_info["code"]; ?>" />
-                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Account balance</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="font-weight:bold; font-size:16px; font-family:Arial, Helvetica, sans-serif !important;" value="KES <?php echo number_format($account_info['balance'], 2); ?>" />
-                        <label style="display:inline-block; margin-bottom:3px; margin-top:15px; font-size:16px; width:280px;">Last transaction:<span style="color:black; font-size:14px;"> <?php echo $trans['narrative']; ?></span></label>
+                    	<!--<label style="display:inline-block; margin-bottom:3px; font-size:16px;">Pay address</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="width:297px;" value="<?php //echo $account_info['pay_address']; ?>" />
+                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Pay short-code</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php //echo $personal_info["code"]; ?>" />-->
+                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Account balance (credits)</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="font-weight:bold; font-size:16px; font-family:Arial, Helvetica, sans-serif !important;" value="<?php echo $balance; ?>" />
+                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Expiry date:</label><input type="text" disabled="disabled" name="expiry" class="pro_txt" value="<?php $var = new DateTime($expiry);echo $var->format('Y-m-d H:i:s A'); ?>" />
+                        <label style="display:inline-block; margin-bottom:3px; margin-top:15px; font-size:16px; width:280px;">Last transaction:<span style="color:black; font-size:14px;"> <?=$last_trans_id; ?></span></label>
                     </form>
-                    <span style="display:block; width:280px; position:relative; top:30px; color:#4d5f0d; font-size:14.5px;">To <b>Upload funds</b> to your account. M-Pesa to the number is <b>0712594022</b>.</span>
+                    <span style="display:block; width:280px; position:relative; top:30px; color:#4d5f0d; font-size:14.5px;">To <b>top up credits</b> to your account. M-Pesa to the number <b>0712594022</b>. Credits expire after their validity period depending on your subscription.</span>
                 </div>
             </div>
         </div>

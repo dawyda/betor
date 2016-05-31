@@ -25,9 +25,9 @@ if(isset($_SESSION["logged"])){
     	<div id="top-head">
         	<div id="top-nav">
             	<ul>
-                	<li><a href="howto">How it works</a></li>
-                    <!--<li><a href="fixture.php">Fixtures</a></li>
-                    <li><a href="betresults.php">Results</a></li>-->
+                	<li><a href="<?=base_url();?>howto">How it works</a></li>
+                    <!--<li><a href="fixture.php">Fixtures</a></li>-->
+                    <li><a href="<?=base_url();?>services">Services</a></li>
                     <li><a href="#" style="border:none; color:#f7ef00; width:auto;">M-Pesa to 0712594022</a></li>
                 </ul>
             </div>
@@ -40,24 +40,24 @@ if(isset($_SESSION["logged"])){
 					if($logged){
                     ?>
                     <li><a href="mybets.php">My bets</a></li>
-                    <li><a href="profile.php">My Profile</a></li>
-                    <li><a href="withdraw.php">Withdraw</a></li>
+                    <li><a href="<?=base_url();?>home/profile/">My Profile</a></li>
+                    <li><a href="<?=base_url();?>premium/">Premium</a></li>
                     <?php
 					}else{
                     ?>
-                    <li><a href="/betor/about/">About</a></li>
-                    <li><a href="/betor/terms/">Terms</a></li>
+                    <li><a href="<?=base_url();?>bethelp/">Bet Advice</a></li>
+                    <li><a href="<?=base_url();?>about/">About</a></li>
                      <?php
 					}
                     ?>
-                    <li><a href="/betor/contacts">Contact Us</a></li>
+                    <li><a href="<?=base_url();?>contacts">Contact Us</a></li>
                 </ul>
             </div>
             <?php
 			if(!$logged){			
 			?>
             <div id="login"><span id="ndevo"></span>
-				<?php echo form_open('login/auth/'); ?>
+				<?php echo form_open("login/auth/"); ?>
             	<!--<form id="login_form" method="post" action="login">-->
                 	<div style="float:left;">
                 	<label for="email" style="color:#f7ef00; font-size:13px; display:block;">Username:</label>
@@ -66,7 +66,7 @@ if(isset($_SESSION["logged"])){
                     <label for="password" style="color:#f7ef00; font-size:13px; display:block;">Password:</label>
                     <input type="password" id="password" name="password" class="txt" required="required" placeholder="********" /></div>
                     <input type="submit" name="submit" id="submit" value="Go" />
-                </form>
+                <?php echo form_close(); ?>
                 <span id="login_error" style="color:#F00; display:block; width:auto; font-size:13px; visibility:visible;"><!--Wrong logins! Try again or <?php //echo anchor('login/pswdreset','&nbsp;Reset Password?','style="text-decoration:none; color:#42f4ff;"');?>--><?php
 				if(isset($disp_msg)) echo $disp_msg;
 				?></span>
@@ -74,11 +74,11 @@ if(isset($_SESSION["logged"])){
             <?php 
 			}else{
 			?>
-            <a id="logout" href="logout.php">logout [<?php echo $user; ?>]</a>
+            <a id="logout" href="<?=base_url();?>logout">logout [<?php echo $user; ?>]</a>
             <div id="login">
             	<form id="login_form" method="post" action="login_user.php">
                 	<div style="float:left; top:30px; position:relative;">
-                	<label for="email" style="color:#f7ef00; font-size:14px; display:block;"><?php echo 'Your account bal. <span style="color:white;">'.number_format($_SESSION['balance'], 2).'</span>'; ?></label>
+                	<label for="email" style="color:#f7ef00; font-size:14px; display:block;"><?php //echo 'Your account bal. <span style="color:white;">'.number_format($_SESSION['balance'], 2).'</span>'; ?></label>
                     </div>
                 </form>
             </div>

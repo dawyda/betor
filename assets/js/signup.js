@@ -17,11 +17,6 @@ function verify(){
 		document.getElementById("password").focus();
 		return false;
 	}
-	if(document.getElementById("mobile").value.match(/[a-zA-Z]/g)){
-		alert("Phone number must have numbers only!");
-		document.getElementById("mobile").focus();
-		return false;
-	}
 	return true;
 }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2016 at 09:38 AM
+-- Generation Time: May 31, 2016 at 04:50 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -101,19 +101,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(200) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `creation_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `avatar` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL DEFAULT 'default.png',
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `pass_change` datetime DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
   `last_ip` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `phone`, `email`, `fullname`, `creation_date`, `avatar`, `confirmed`, `pass_change`, `last_login`, `last_ip`) VALUES
-(1, 'user1', '797dcbd47cf8b8f1f93bf9365894032c40b82aca', NULL, 'user@domain.com', 'User One', '2016-05-28 21:43:28', 'default.png', 0, NULL, '2016-05-11 00:00:00', '192.168.1.20');
+(1, 'user1', '797dcbd47cf8b8f1f93bf9365894032c40b82aca', NULL, 'user@domain.com', 'User One', '2016-05-28 21:43:28', 'default.png', 0, NULL, '2016-05-31 17:49:00', '192.168.1.20'),
+(3, 'testuser', 'bb7bdeb6946950b1cd202434b4df45e7f20193d2', '0711071104', 'test.user@mail.com', 'Test User', '2016-05-31 17:41:33', 'default.png', 0, NULL, '2016-05-31 17:49:43', NULL),
+(4, 'another', '819e4eaa10d6ec7c9fed4a75b0f53ff8c638e046', '0707333222', 'dumb@mail.co.ke', 'Another User', '2016-05-31 17:42:57', 'default.png', 0, NULL, '2016-05-31 17:49:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -191,7 +193,7 @@ ALTER TABLE `predictions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `value_bets`
 --
