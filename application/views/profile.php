@@ -1,34 +1,5 @@
 <?php
-session_start();
-/* require_once("common/session_check.php");
-include("common/DB_CONNECT.php");
-$id = $_SESSION["user_id"];
-$sql = "SELECT users.phone, users.email, users.confirmed, users.last_login, short_codes.code FROM users INNER JOIN short_codes ON users.id = short_codes.user_id WHERE users.id = ".$id;
-$query = $conn->query($sql) or die("Failed to fetch user contents please <a href='login.php'>login</a> again: <br />".$conn->error);
-$personal_info = $query->fetch_assoc();
-$sql = "SELECT accounts.pay_address, accounts.balance, accounts.last_transaction_id AS lid FROM accounts WHERE accounts.phone = '".$personal_info["phone"]."'";
-$query = $conn->query($sql) or die("2Failed to fetch user contents please <a href='login.php'>login</a> again: <br />".$conn->error);
-$account_info = $query->fetch_assoc();
-$_SESSION['balance'] = $account_info['balance'];
-$mybets = getBetInfo($personal_info["phone"], $conn);
-$tstr = "SELECT narrative FROM transactions WHERE id = ".$account_info["lid"];
-if($account_info["lid"] == "") $tstr = "SELECT narrative FROM transactions WHERE id = (SELECT MAX(trans_datetime) FROM transactions WHERE phone = '".$personal_info["phone"]."') AND phone = '".$personal_info["phone"]."'";
-$query = $conn->query($tstr) or die($conn->error);
-$trans = $query->fetch_assoc();
-if($trans["narrative"] == NULL) $trans["narrative"] = "<i>No transactions yet</i>";
-$query->free();
-$conn->close();
-
-function getBetInfo($phone, $conn){
-	$str = "SELECT COUNT(id) FROM singlebets WHERE phone = '".$phone."' AND outcome IS NULL";
-	$res = $conn->query($str);
-	$sin = $res->fetch_array(MYSQLI_NUM);
-	$str = "SELECT COUNT(multibet_id) FROM multibets WHERE phone = '".$phone."' AND outcome IS NULL";
-	$res = $conn->query($str);
-	$mul = $res->fetch_array(MYSQLI_NUM);
-	
-	return "Singlebets: ".$sin[0]." Multibets: ".$mul[0];
-} */
+defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -59,9 +30,9 @@ function getBetInfo($phone, $conn){
             <div class="clear"></div>
             <div id="main-nav">
             	<ul>
-                	<li><a href="games.php">Bet Now</a></li>
-                    <li><a href="mybets.php">My Bets</a></li>
-                    <li><a href="withdraw.php">Withdraw</a></li>
+                	<li><a href="games.php">View tips</a></li>
+                    <li><a href="mybets.php">Value Bets</a></li>
+                    <li><a href="withdraw.php">Buy Credits</a></li>
                     <li><a href="#">Notifications</a></li>
                     <li><a href="changepwd.php">Change Password</a></li>
                     <li style="float:right;"><a href="logout.php">Logout [<?php echo $_SESSION["username"]; ?>]</a></li>
@@ -74,24 +45,24 @@ function getBetInfo($phone, $conn){
             </div>
             <div id="prof_tab">
             	<img src="images/icons/prof_pic.png" id="prof_pic" /><div style="position:relative; float:right; right:55px;"><label style="display:block; margin-bottom:3px; font-size:16px;">Phone Number Verification</label><input type="text" disabled="disabled" name="verified" id="verified" class="pro_txt" value="<?php
-				if($personal_info['confirmed'] == 0){
+				 if($confirmed == 0){
 					echo "Not verified";
 				}
 				else{
 					echo "Verified";
-				}
+				} 
          ?>" style="font-weight:bold;" /><?php
-				if($personal_info['confirmed'] == 0){ ?><div id="ver_div" style="display:none;"><label id="lbl_code" style="font-size:12px; color:blue; font-family:Arial, Helvetica, sans-serif; display:block;">Enter received SMS code to verify</label><input type="text" id="ver_code" /></div><a id="btn_verify" href="#" onclick="verifyAcc(event);">Verify Phone Number</a><?php } ?></div>
+				if($confirmed == 0){ ?><div id="ver_div" style="display:none;"><label id="lbl_code" style="font-size:12px; color:blue; font-family:Arial, Helvetica, sans-serif; display:block;">Enter received email code to verify</label><input type="text" id="email_code" /></div><a id="btn_verify" href="#" onclick="verifyAcc(event);">Verify Account</a><?php } ?></div>
                 <div id="prof_personal">
                 	<h2 class="tabs">Personal Information</h2>
                     <form id="form_personal" action="" method="post">
                     	<label style="display:block; margin-bottom:3px; font-size:16px;">Username</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $_SESSION["username"]; ?>" />
-                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Email adrress</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $email = ($personal_info['email'] == "") ? "none provided":$personal_info['email']; ?>" />
-                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Mobile number</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $personal_info["phone"]; ?>" />
+                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Full Name</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $fullname; ?>" />
+                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Email</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $email; ?>" />
                         <!--<label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Bets Won/ Lost</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="0" />-->
-                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Current bets placed</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $mybets; ?>" />
-                        <label style="display:inline-block; margin-bottom:3px; margin-top:15px; font-size:16px;">Last login: <span style="color:#202020; font-size:13px;"><?php if($personal_info['last_login'] != NULL){
-							$dtime = new DateTime($personal_info['last_login']);
+                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Last IP: </label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $last_ip; ?>" />
+                        <label style="display:inline-block; margin-bottom:3px; margin-top:15px; font-size:16px;">Last Login: <span style="color:#202020; font-size:13px;"><?php if($last_login != NULL){
+							$dtime = new DateTime($last_login);
 						 	echo $dtime->format("Y-m-d h:i:s A"); 
 						}else{
 							echo "Zero logins";

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2016 at 08:32 PM
+-- Generation Time: May 31, 2016 at 09:38 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -29,8 +29,17 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `credits` (
   `id` bigint(20) unsigned NOT NULL,
   `balance` decimal(5,2) NOT NULL,
-  `last_pay_id` mediumint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `user_id` int(6) NOT NULL,
+  `expiry` datetime NOT NULL,
+  `last_trans_id` mediumint(8) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `credits`
+--
+
+INSERT INTO `credits` (`id`, `balance`, `user_id`, `expiry`, `last_trans_id`) VALUES
+(1, '5.00', 1, '2016-06-30 06:00:00', 2323);
 
 -- --------------------------------------------------------
 
@@ -48,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `member_types` (
 --
 
 INSERT INTO `member_types` (`id`, `name`) VALUES
-(1, 'normal'),
+(1, 'free'),
 (3, 'platinum'),
 (2, 'premium');
 
@@ -88,15 +97,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) unsigned NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `creation_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `avatar` varchar(255) NOT NULL,
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `pass_change` datetime DEFAULT NULL,
-  `last_login` datetime NOT NULL,
-  `last_ip` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `last_login` datetime DEFAULT NULL,
+  `last_ip` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `phone`, `email`, `fullname`, `creation_date`, `avatar`, `confirmed`, `pass_change`, `last_login`, `last_ip`) VALUES
+(1, 'user1', '797dcbd47cf8b8f1f93bf9365894032c40b82aca', NULL, 'user@domain.com', 'User One', '2016-05-28 21:43:28', 'default.png', 0, NULL, '2016-05-11 00:00:00', '192.168.1.20');
 
 -- --------------------------------------------------------
 
@@ -159,7 +176,7 @@ ALTER TABLE `value_bets`
 -- AUTO_INCREMENT for table `credits`
 --
 ALTER TABLE `credits`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `member_types`
 --
@@ -174,7 +191,7 @@ ALTER TABLE `predictions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `value_bets`
 --
