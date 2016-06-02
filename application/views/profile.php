@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="main-nav">
             	<ul>
                 	<li><a href="<?=base_url();?>home">Home</a></li>
-                    <li><a href="<?=base_url();?>bets/valuebets">Value Bets</a></li>
+                    <li><a href="<?=base_url();?>tips/valuebets">Value Bets</a></li>
                     <li><a href="withdraw.php">Buy Credits</a></li>
                     <li><a href="#">Messages</a></li>
                     <li><a href="<?=base_url();?>security/changepwd">Change Password</a></li>
