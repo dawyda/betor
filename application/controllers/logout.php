@@ -30,10 +30,14 @@ class Logout extends CI_Controller {
 			redirect('home/');
 		}
 		else{
+			//update last login
+			$this->load->model("betor_users");
+			$this->betor_users->set_last_login($this->session->logged_time, $_SESSION["userid"]);
 			//unset session data
 			unset($_SESSION['logged'],
 				$_SESSION['username'],
-				$_SESSION['userid']
+				$_SESSION['userid'],
+				$_SESSION["logged_time"]
 			);
 			redirect('home/');
 		}

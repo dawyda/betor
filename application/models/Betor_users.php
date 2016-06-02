@@ -18,10 +18,8 @@ Class Betor_Users extends CI_Model {
             $data["password"] = $password;
             $query = $this->db->select('id')->where($data)->get('users');
             if($query->num_rows() > 0){
-                //user exists ...set last login then return.
-                $this->db->set('last_login', 'NOW()',FALSE);
-                $this->db->where('username', $data["username"]);
-                $this->db->update('users');
+                // user exists
+                
                 return TRUE;
             }
             else{
@@ -30,6 +28,13 @@ Class Betor_Users extends CI_Model {
         }
         else{ return FALSE; }
     }
+	
+	public function set_last_login($time,$userid)
+	{
+		$this->db->set('last_login', $time);
+		$this->db->where('id', $userid);
+		$this->db->update('users');
+	}
     
     public function get_user_info($username){
         $query = $this->db->select('*')->where('username', $username)->get('users');
