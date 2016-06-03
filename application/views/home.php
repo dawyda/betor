@@ -17,6 +17,7 @@ if(isset($_SESSION["logged"])){
 <link REL="SHORTCUT ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
 <link REL="ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
 <script type="text/javascript" src="/betor/assets/js/home.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <noscript>Please enable Javascript to enjoy your viewing</noscript>
 <title>Welcome to MyBets</title>
 </head>
@@ -124,9 +125,18 @@ if(isset($_SESSION["logged"])){
                         <li style="width:110px; border:none;" >Game Type</li>-->
                     </ul>
                 </div>
-                <div id="match_list_cont">
+                <div id="match_list_cont" ng-app="myApp" ng-controller="myCtrl">
+				<script>
+					var app = angular.module('myApp', []);
+					app.controller('myCtrl', function($scope, $http) {
+						$http.get("<?=base_url();?>tips/free")
+						.then(function(response) {
+							document.getElementById('match_list_cont').innerHTML = response.data;
+						});
+					});
+				</script> 
             <!-- Place matches within here -->
-                <!--use div within lists-->
+                <!--use div within lists--><!--
                     <div class="listdiv" style="color:#000;">
                     	<ul class="match_list_ul">
                         	<li style="width:110px; padding-top:10px;">09-03 09:00 PM</li>
@@ -178,8 +188,9 @@ if(isset($_SESSION["logged"])){
 							<li style="width:100px;" class="padli"><a href="#" id="3">2 : 1</a></li>
 							<li style="width:30px;" class="padli"><a href="#" id="3"><div class="win"></div></a></li>
                         </ul>
-                    </div>
+                    </div>-->
                     <!--match list full end -->
+					<!--loaded with Ajax-->
                     <!-- Place matches within here -->
                 </div>
             </div>

@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+.funcs_holder{
+	position:relative;
+	border:1px solid #DDD;
+	width:840px;
+	min-height:180px;
+	margin:0 auto;
+	background:#FCFCFC;
+	box-shadow:1px 1px 2px #9C9C9C;
+	border-radius:5px;
+}
+.func_hold_title{
+	background-color:#933;
+	height:28px;
+	font-size:18px;
+	width:inherit;
+	display:block;
+	text-align:center;
+	color:white;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	text-shadow:1px 1px 1px #313131;
+}
+.funcs_body{
+	font-size:14px;
+	color:#000;
+	padding:5px 0px 0px 5px;
+}
+.funcs_body ul{
+	padding:0px; margin:0px;
+	list-style:none;
+}
+.funcs_body ul li{
+	position:relative;
+	margin:5px 10px 5px 10px;
+	display:inline-block;
+}
+.funcs_body ul li a{
+	display:block;
+	width:140px;
+	height:30px;
+	font-size:13px;
+	text-align:center;
+	background-color:#09F;
+	text-decoration:none;
+	color:white;
+	font-weight:bold;
+	padding-top:10px;
+	font-family:Arial, Helvetica, sans-serif !important;
+	border-radius:5px;
+	box-shadow:1px 1px 2px #727272;
+	transition:background-color 0.3s ease;
+	outline:none;
+}
+.funcs_body ul li a:hover{
+	background-color:#03F;
+}

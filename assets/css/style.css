@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+label{
+	display:inline-block;
+	width:130px;
+}
+#capt{
+	display:inline-block;
+	width:160px;
+	height:75px;
+	border:1px solid #747474;
+	margin-left:105px;
+}
+#resp{
+	position:relative;
+	width:250px;
+	padding-left:5px;
+	background:#EFEFEF;
+	box-shadow:1px 1px 2px #B2B2B2;
+	margin:0 auto;
+	border:1px solid #DBDBDB;
+	font-family:Arial, Helvetica, sans-serif !important;
+	font-size:14px;
+	visibility:hidden;
+}

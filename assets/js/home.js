@@ -37,9 +37,5 @@ function initiateBet(event){
 	alert("making bet!");
 }
 
-function calc_amount(){
-	
-}
-
 
 //slide show code
