@@ -40,7 +40,8 @@ class Login extends CI_Controller {
 			$this->load->model('betor_users');
 			$pass = $this->betor_users->login($logins);
 			if($pass){
-				$this->session->logged_time = date("Y-m-d H:i:s", time());	
+				$this->session->logged_time = date("Y-m-d H:i:s", time());
+				$this->session->user_ip = $this->input->ip_address();
 				$this->session->logged = TRUE;
 				$this->session->username = $logins["username"];
 				redirect('home/profile/');

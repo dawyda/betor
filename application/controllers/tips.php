@@ -70,7 +70,7 @@ class Tips extends CI_Controller {
 								<li style="width:70px;" class="padli"><a href="#">'.$tip->draw.'</a></li>
 								<li style="width:70px;" class="padli"><a href="#">'.$tip->away.'</a></li>
 								<li style="width:100px;" class="padli"><a href="#" id="3">'.$tip->result.'</a></li>
-								<li style="width:30px;" class="padli"><a href="#" id="3">'.$outcome.'</a></li>
+								<li style="width:60px;" class="padli"><a href="#" id="3">'.$outcome.'</a></li>
 							</ul>
 						</div>';
 			}

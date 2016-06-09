@@ -6,7 +6,7 @@
 	margin-bottom:1px;
 	width:960px;
 	height:750px;
-	background:url(/betor/assets/img/table_bg.jpg) no-repeat;
+	background:url(/betor/assets/img/table_bg.jpg) repeat-x;
 	background-color:white;
 }
 #table_cont .header{

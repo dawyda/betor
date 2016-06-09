@@ -30,8 +30,8 @@ class Signup extends CI_Controller {
 	{
 		$vals = array(
 			'word' => $this->_rand_word(),
-        'img_path' => 'assets/img/',
-        'img_url' => base_url().'assets/img/',
+        'img_path' => 'assets/img/captchas/',
+        'img_url' => base_url().'assets/img/captchas',
 		'id' => 'cap_img',
         );
         

@@ -120,7 +120,7 @@ if(isset($_SESSION["logged"])){
                         <li style="width:70px;">X</li>
                         <li style="width:70px;">2</li>
 						<li style="width:100px;">FT Result</li>
-						<li style="width:30px;">@</li>
+						<li style="width:60px;">outcome</li>
                         <!--<li style="width:150px;">League</li>
                         <li style="width:110px; border:none;" >Game Type</li>-->
                     </ul>

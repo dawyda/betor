@@ -5,7 +5,7 @@ function verifyAcc(event){
 		clicked = true;
 		$('#ver_div').show(300);
 		$('#btn_verify').text("verify");
-		$.post("actions/SMScodehandler.php",
+		$.post("http://localhost/betor/home/verify_account",
 		{
 			"action":"create"
 		},
@@ -18,13 +18,13 @@ function verifyAcc(event){
 		);
 	}
 	else{
-		var str = $('#ver_code').val();
+		var str = $('#email_code').val();
 		sendCode(str);
 	}
 }
 
 function sendCode(str){
-	$.post("actions/SMScodehandler.php",
+	$.post("http://localhost/betor/home/verify_account",
 	{
 		"action":"check", 
 		"code":str
