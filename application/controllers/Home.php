@@ -61,6 +61,7 @@ class Home extends CI_Controller {
 		$data["balance"] = $credit_info["balance"];
 		$data["expiry"] = $credit_info["expiry"];
 		$data["last_trans_id"] = $credit_info["last_trans_id"];
+		$data["acc_type"] = $this->betor_users->get_member_type($user_info["m_type"]);
 		
 		$this->load->view('profile', $data);
 	}

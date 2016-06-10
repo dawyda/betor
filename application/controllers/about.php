@@ -22,4 +22,10 @@ class About extends CI_Controller {
 	{
 		$this->load->view('about');
 	}
+	
+	public function services()
+	{
+		$this->load->helper("form");
+		$this->load->view('services');
+	}
 }

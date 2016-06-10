@@ -5,13 +5,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/betor/assets/css/menu_bar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/betor/assets/css/bottom_footer.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/betor/assets/css/common.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/betor/assets/css/profile.css" type="text/css" media="screen" />
-<link REL="SHORTCUT ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
-<link REL="ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
-<script type="text/javascript" src="/betor/assets/js/jquery-1.4.min.js"></script>
+<link rel="stylesheet" href="<?=base_url();?>assets/css/menu_bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?=base_url();?>assets/css/bottom_footer.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?=base_url();?>assets/css/common.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?=base_url();?>assets/css/profile.css" type="text/css" media="screen" />
+<link REL="SHORTCUT ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
+<link REL="ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
+<script type="text/javascript" src="<?=base_url();?>assets/js/jquery-1.4.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/js/profile.js"></script>
 <title>Profile(<?php echo $_SESSION["username"]; ?>) | Mybets.com</title>
 </head>
@@ -54,10 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="prof_personal">
                 	<h2 class="tabs">Personal Information</h2>
                     <form id="form_personal" action="" method="post">
-                    	<label style="display:block; margin-bottom:3px; font-size:16px;">Username</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $_SESSION["username"]; ?>" />
-                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Full Name</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $fullname; ?>" />
-                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Email</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $email; ?>" />
-                        <!--<label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Bets Won/ Lost</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="0" />-->
+                    	<label style="display:block; margin-bottom:3px; font-size:16px;">Username:</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $_SESSION["username"]; ?>" />
+                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Full Name:</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $fullname; ?>" />
+                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Email:</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $email; ?>" />
+                        <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Member Since:</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?=((new DateTime($creation_date))->format("Y-m-d g:i:s A"));?>" />
                         <label style="display:block; margin-bottom:3px; margin-top:3px; font-size:16px;">Last IP: </label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php echo $last_ip; ?>" />
                         <label style="display:inline-block; margin-bottom:3px; margin-top:15px; font-size:16px;">Last Login: <span style="color:#202020; font-size:13px;"><?php if($last_login != NULL){
 							$dtime = new DateTime($last_login);
@@ -72,8 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 	<h2 class="tabs">Credits Account Information</h2>
                     <form id="form_account" action="" method="post">
                     	<!--<label style="display:inline-block; margin-bottom:3px; font-size:16px;">Pay address</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="width:297px;" value="<?php //echo $account_info['pay_address']; ?>" />
-                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Pay short-code</label><input type="text" disabled="disabled" name="username" class="pro_txt" value="<?php //echo $personal_info["code"]; ?>" />-->
-                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Account balance (credits)</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="font-weight:bold; font-size:16px; font-family:Arial, Helvetica, sans-serif !important;" value="<?php echo $balance; ?>" />
+                        --><label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Account Type:</label><input type="text" disabled="disabled" name="acc_type" class="pro_txt" value="<?=$acc_type;?>" />
+                        <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Account balance (credits):</label><input type="text" disabled="disabled" name="username" class="pro_txt" style="font-weight:bold; font-size:16px; font-family:Arial, Helvetica, sans-serif !important;" value="<?php echo $balance; ?>" />
                         <label style="display:inline-block; margin-bottom:3px; margin-top:3px; font-size:16px;">Expiry date:</label><input type="text" disabled="disabled" name="expiry" class="pro_txt" value="<?php $var = new DateTime($expiry);echo $var->format('Y-m-d g:i:s A'); ?>" />
                         <label style="display:inline-block; margin-bottom:3px; margin-top:15px; font-size:16px; width:280px;">Last transaction:<span style="color:black; font-size:14px;"> <?=$last_trans_id; ?></span></label>
                     </form>

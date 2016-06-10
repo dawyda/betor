@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS */
+div#services_banner{
+	height:250px; width:960px;
+	position:relative;
+	background:url(/betor/assets/img/service-banner.png) no-repeat;
+	display:block;
+	margin-bottom:10px;
+	font-style:italic;
+}
+ul#services-list{
+	display:inline-block;
+	position:relative;
+	width:960px; min-height:280px;
+	background-color:#696969;
+	padding:0px;
+	margin:0px;
+}
+ul#services-list li{
+	list-style:none;
+	position:relative;
+	float:left;
+	width:230px;
+	display:block;
+	height:auto;
+	padding:5px;
+}
+.service-title{
+	font-size:18px;
+	font-weight:bold;
+	color:#fff;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+.service-text{
+	font-size:12pt;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#F5F5F5;
+}
+#price-list{
+	position:relative;
+	width:960px; height:425px;
+	padding:10px;
+}

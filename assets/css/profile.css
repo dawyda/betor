@@ -96,5 +96,6 @@ a#btn_verify:hover{
 	border:1px solid #ececec;
 	padding-left:3px;
 	padding-right:3px;
-	/*color:#9a9a9a;*/
+	color:#525252;
+	font-weight:bold;
 }

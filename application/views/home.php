@@ -10,16 +10,16 @@ if(isset($_SESSION["logged"])){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/betor/assets/css/home.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/betor/assets/css/menu_bar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/betor/assets/css/table.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/betor/assets/css/bottom_footer.css" type="text/css" media="screen" />
-<link REL="SHORTCUT ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
-<link REL="ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
-<script type="text/javascript" src="/betor/assets/js/home.js"></script>
+<link rel="stylesheet" href="<?=base_url();?>assets/css/home.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?=base_url();?>assets/css/menu_bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?=base_url();?>assets/css/table.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?=base_url();?>assets/css/bottom_footer.css" type="text/css" media="screen" />
+<link REL="SHORTCUT ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
+<link REL="ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
+<script type="text/javascript" src="<?=base_url();?>assets/js/home.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <noscript>Please enable Javascript to enjoy your viewing</noscript>
-<title>Welcome to MyBets</title>
+<title>Home Page | Welcome to Betips.co.ke</title>
 </head>
 <body onload="startTime()">
     <div id="cont">
@@ -28,21 +28,21 @@ if(isset($_SESSION["logged"])){
             	<ul>
                 	<li><a href="<?=base_url();?>howto">How it works</a></li>
                     <!--<li><a href="fixture.php">Fixtures</a></li>-->
-                    <li><a href="<?=base_url();?>services">Services</a></li>
+                    <li><a href="<?=base_url();?>about/services">Services</a></li>
                     <li><a href="#" style="border:none; color:#f7ef00; width:auto;">M-Pesa to 0712594022</a></li>
                 </ul>
             </div>
             <div class="clear"></div>
             <div id="main-nav">
             	<ul>
-                	<li><a href="#">Predictions</a></li>
-                    <li><a href="games.php">Today's Value Bets</a></li>
+                	<li><a href="#">Free Tips</a></li>
+                    <li><a href="<?=base_url();?>tips/valuebets/">Value Bet Tips</a></li>
                     <?php
 					if($logged){
                     ?>
-                    <li><a href="mybets.php">My bets</a></li>
+                    <li><a href="<?=base_url();?>tips/premium/">Premium Tips</a></li>
                     <li><a href="<?=base_url();?>home/profile/">My Profile</a></li>
-                    <li><a href="<?=base_url();?>premium/">Premium</a></li>
+                    <li><a href="<?=base_url();?>transactions/buy">Buy Credits</a></li>
                     <?php
 					}else{
                     ?>
@@ -52,6 +52,7 @@ if(isset($_SESSION["logged"])){
 					}
                     ?>
                     <li><a href="<?=base_url();?>contacts">Contact Us</a></li>
+                    <?php if(!$logged) echo '<li><a href="'.base_url().'signup/">Join Now!</a></li>';?>
                 </ul>
             </div>
             <?php
@@ -253,10 +254,10 @@ if(isset($_SESSION["logged"])){
             	<ul id="foot_nav">
                 	<li><a href="#">Home</a></li>
                     <li><a href="games.php">Games</a></li>
-                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="<?=base_url();?>about">About Us</a></li>
                     <li><a href="privacy.php">Privacy policy</a></li>
-                    <li><a href="terms.html">Terms&amp;Conditions</a></li>
-                    <li><a href="services.php">Services</a></li>
+                    <li><a href="<?=base_url();?>terms">Terms&amp;Conditions</a></li>
+                    <li><a href="<?=base_url();?>about/services">Services</a></li>
                     <li style="border:none;"><a href="#">Contacts</a></li>
                 </ul>
                 <span style="color:#15ff03; font-size:12px; display:block; position:absolute; bottom:3px; right:3px;">&copy;2014 mybets inc. All rights reserved.</span>

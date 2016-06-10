@@ -86,6 +86,13 @@ Class Betor_Users extends CI_Model {
         $query = $this->db->get();
         return $row = $query->row_array();
     }
+	
+	public function get_member_type($mtype)
+	{
+		$query = $this->db->select("name")->where("id",$mtype)->get("member_types");
+		$row = $query->row();
+		return $row->name;
+	}
     
     public function add_new_user($user)
     {
