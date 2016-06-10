@@ -80,6 +80,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span style="display:block; width:280px; position:relative; top:30px; color:#4d5f0d; font-size:14.5px;">To <b>top up credits</b> to your account. M-Pesa to the number <b>0712594022</b>. Credits expire after their validity period depending on your subscription.</span>
                 </div>
             </div>
+			<div id="ad_area">
+				<a href="<?=base_url();?>signup"><img src="<?=base_url();?>assets/img/prof-banner.jpg" alt="prof-ad" title="Join Now"/></a>
+			</div>
         </div>
         <div id="footer">
         	<div id="foot_left">
@@ -87,15 +90,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div id="foot_right">
             	<ul id="foot_nav">
-                	<li><a href="home.php">Home</a></li>
+                	<li><a href="<?=base_url();?>home">Home</a></li>
                     <li><a href="games.php">Games</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="privacy.php">Privacy policy</a></li>
-                    <li><a href="terms.html">Terms&amp;Conditions</a></li>
-                    <li><a href="services.php">Services</a></li>
-                    <li style="border:none;"><a href="#">Contacts</a></li>
+                    <li><a href="<?=base_url();?>about">About Us</a></li>
+                    <li><a href="<?=base_url();?>terms">Terms&amp;Conditions</a></li>
+                    <li><a href="<?=base_url();?>about/services">Services</a></li>
+                    <li style="border:none;"><a href="<?=base_url();?>contacts">Contacts</a></li>
                 </ul>
-                <span style="color:#15ff03; font-size:12px; display:block; position:absolute; bottom:3px; right:3px;">&copy;2014 mybets inc. All rights reserved.</span>
+                <span style="color:#15ff03; font-size:12px; display:block; position:absolute; bottom:3px; right:3px;">&copy;2016 betips.co.ke. All rights reserved.</span>
             </div>
         </div>
     </div>

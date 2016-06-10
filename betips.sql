@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(20) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `fullname` varchar(255) NOT NULL,
-  `creation_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creation_date` datetime NULL,
   `avatar` varchar(255) NOT NULL DEFAULT 'default.png',
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   `pass_change` datetime DEFAULT NULL,

@@ -11,6 +11,13 @@
 	padding-left:25px;
 	color:#9a9a9a;
 }
+#ad_area{
+	position:relative;
+	width:330px;
+	min-height:570px;
+	float:left;
+	padding-left:5px;
+}
 #prof_pic{
 	position:relative;
 	display:inline-block;
@@ -33,11 +40,12 @@
 #prof_tab{
 	position:relative;
 	padding:10px;
-	width:600px;
+	width:570px;
 	height:510px;
 	background:#FFF;
 	box-shadow:1px 1px 2px #C3C3C3;
 	border-radius:5px;
+	float:left;
 }
 h2.tabs{
 	color:#56dcd3;

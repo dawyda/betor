@@ -68,7 +68,7 @@
                 </li>
                  <li>
                     <div>
-                        <span class="service-title">Fixed-match Alerts</span><br /><br />
+                        <span class="service-title">Fixed-match Alerts:</span><br /><br />
                         <span class="service-text">Wouldn't you hate to watch a match whose results are already decide? Now take that into consideration when betting. Face palms. We monitor match odds shifts and venue changes to detect fixed matches. This is even more beneficial to those who engage in live betting. We will notify you via text or email aleast 1 hour to the beginning of a fixed match. So beware.</span>
                     </div>
                 </li>
