@@ -2,7 +2,7 @@
 /* CSS Document */
 #cont.prof{
 	background-color:#e8e8e8;
-	min-height:795px;
+	min-height:800px;
 }
 #profile_area{
 	position:relative;
@@ -10,13 +10,15 @@
 	min-height:620px;
 	padding-left:25px;
 	color:#9a9a9a;
+	display:inline-block;
 }
 #ad_area{
 	position:relative;
 	width:330px;
-	min-height:570px;
+	min-height:580px;
 	float:left;
 	padding-left:5px;
+	padding-bottom:5px;
 }
 #prof_pic{
 	position:relative;

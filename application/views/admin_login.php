@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,11 +26,13 @@
             </div>
         </div>
         <div style="width:960px; height:300px; background:#FFF; position:relative;">
-        	<div id="resp"></div>
+        	<div id="resp"><?php if(isset($login_errors)) echo $login_errors;?></div>
         	<?=form_open("admin/login",'style="display:block; position:relative; width:400px; margin:0 auto; padding-top:10px;"');?>
             	<label for="username">Email/Username:</label><input type="text" name="username" id="username" required="required" placeholder="username or phone" /><br /><br />
                 <label for="password">Password:</label><input type="password" name="password" id="password" required="required" /><br /><br />
-                <input type="submit" name="submit" value="Login" />
+                <?=$image;?><br/><br/>
+				<label for="captcha">Enter captcha:</label><input type="text" name="captcha" id="captcha" required="required" placeholder="enter displayed text" /><br /><br />
+				<input type="submit" name="submit" value="Login" />
             </form>
         </div>
         <div id="footer">

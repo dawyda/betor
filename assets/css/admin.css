@@ -56,3 +56,6 @@
 .funcs_body ul li a:hover{
 	background-color:#03F;
 }
+#resp{
+	color:red;
+}
