@@ -38,7 +38,7 @@ if(!isset($_SESSION["adlogged"]) || !$_SESSION["adlogged"])
                 <div class="funcs_body">
                 	<ul>
                     	<li><a href="<?=base_url();?>admin_tasks/addFreeTips/" title="add free tips">Add Free Tips</a></li>
-                        <li><a href="setResults.php" title="set fixture results">Set Game Results</a></li>
+                        <li><a href="<?=base_url();?>admin_tasks/setResults/" title="set game results">Set Game Results</a></li>
                         <li><a href="#" onclick="updateSingle(event)" title="add vbs">Add Value-Bet Tips</a></li>
                         <li><a href="#" onclick="updateMulti(event)" title="add premium tips">Add Premium Tips</a></li>
                     </ul>
@@ -64,7 +64,7 @@ if(!isset($_SESSION["adlogged"]) || !$_SESSION["adlogged"])
                     </ul>
                 </div>
             </div><br />
-            <div class="funcs_holder">
+            <!--<div class="funcs_holder">
             	<span class="func_hold_title">3. SMS, Email &amp; Support</span>
                 <div class="funcs_body">
                 	<ul>
@@ -78,12 +78,12 @@ if(!isset($_SESSION["adlogged"]) || !$_SESSION["adlogged"])
                         <li><a href="#" onclick="closeFixtures(event)">SMS logs</a></li>
                     </ul>
                 </div>
-            </div><br />
+            </div><br />-->
             <div class="funcs_holder">
-            	<span class="func_hold_title">4. Users Management</span>
+            	<span class="func_hold_title">3. User's Management</span>
                 <div class="funcs_body">
                 	<ul>
-                    	<li><a href="#" onclick="closeFixtures(event)">Add Users</a></li>
+                    	<li><a href="<?=base_url();?>admin_tasks/listUsers/">Show All Users</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Edit users</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Remove users</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Add Admins</a></li>

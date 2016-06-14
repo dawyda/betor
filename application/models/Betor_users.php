@@ -61,6 +61,10 @@ Class Betor_Users extends CI_Model {
         $data["confirmed"] = TRUE;
         $this->db->where("id", $userid);
         $this->db->update("users", $data);
+        
+        //delete row from pending codes
+        $this->db->where("user_id", $userid);
+        $this->db->delete("pending_codes");
     }
 	
 	public function set_last_login($time,$userid,$ip)

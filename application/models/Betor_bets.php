@@ -15,5 +15,16 @@ Class Betor_bets extends CI_Model {
         
         return $query;
     }
+	
+	public function fetch_unresulted()
+	{
+		$all_results = array();
+		$fquery = $this->db->select("id, game")->where("result","")->where("matchdate <", date("Y-m-d H:m:i", time()))->order_by('matchdate', 'ASC')->get("predictions");
+		foreach ($fquery->result() as $row)
+		{
+			array_push($all_results, $row);
+		}
+		return $all_results;
+	}
 }
     
