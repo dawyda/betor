@@ -81,6 +81,15 @@ Class Betor_Users extends CI_Model {
         $query = $this->db->select('*')->where('username', $username)->get('users');
         return $row = $query->row_array();
     }
+	
+	public function get_user_from_num($phone)
+	{
+		$query = $this->db->select('*')->where('phone', $phone)->get('users');
+		if($query->num_rows() > 0){
+			return $row = $query->row_array();
+		}
+		else{return NULL;}
+	}
     
     public function get_user_credit($user_id)
     {

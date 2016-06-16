@@ -5,6 +5,45 @@
 <link rel="stylesheet" href="/betor/assets/css/menu_bar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/betor/assets/css/common.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/betor/assets/css/bottom_footer.css" type="text/css" media="screen" />
+<style>
+    label{
+        font-size:16px;
+        position:relative;
+        margin:5px;
+        font-weight:bold;
+        font-family:Arial, Helvetica, sans-serif;
+        color:grey;
+    }
+    input[type="text"],input[type="email"] {
+        position:relative;
+        display:block;
+        margin:5px;
+        border-radius:3px;
+        height:25px;
+        padding-left:5px;
+        width:200px;
+        border:1px solid #B0B0B0;
+    }
+    textarea{
+        position:relative;
+        display:block;
+        margin:5px;
+        border-radius:3px;
+        height:180px;
+        padding-left:5px;
+        width:350px;
+        border:1px solid #B0B0B0;
+    }
+    input[type="submit"]{
+        position:relative;
+        color:#5E5E5E;
+        margin:5px;
+        border-radius:15px;
+        border:1px solid #B0B0B0;
+        width:75px; height:25px;
+        font-size:16px;
+    }
+</style>
 <link REL="SHORTCUT ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
 <link REL="ICON" HREF="/betor/assets/img/icon.ico" type="image/x-icon">
 <title>Contact Us Page - Mybets.co.ke - Kenyan Online Betting Site</title>
@@ -30,8 +69,17 @@
                 </ul>
             </div>
         </div>
-        <div style="background-color:#FBFBFB;">
-        Use the information provided at the footer to call us or email to us.
+        <div style="background-color:#FFF; padding:10px 0px 10px 20px;">
+            <h3 style="font-family:Arial, Helvetica, sans-serif; font-size:20px; margin:0px 0px 10px 5px; position:relative;">Speak to Us</h3>
+            <span style="position:relative; color:#5E5E5E; margin:5px; display:block;">Hi, there contact us here for any enquiries and suggestions</span>
+            <div style="color:blue; margin:5px;"><?php if(isset($display_msg)) echo $display_msg; ?></div>
+            <form action="" method="post">
+                <label for="names">Name:</label><input type="text" name="names" id="names" required="required" placeholder="Your Name"/>
+                <label for="email">Email:</label><input type="email" name="email" id="email" required="required" placeholder="Your Email Address"/>
+                <label for="subject">Subject:</label><input type="text" name="subject" id="subject" required="required" placeholder="Subject of your feedback"/>
+                <label for="content">Feedback:</label><textarea required="required" id="content" name="content" placeholder="Your Name"></textarea>
+                <input type="submit" value="Submit" name="submit" />
+            </form>
         </div>
         <div id="sub_footer">
             <div class="sub_tabs" style="padding-left:20px;">

@@ -109,7 +109,7 @@ if(!isset($_SESSION["adlogged"]) || !$_SESSION["adlogged"])
                     <li><a href="#">Services</a></li>
                     <li style="border:none;"><a href="#">Contacts</a></li>
                 </ul>
-                <span style="color:#15ff03; font-size:12px; display:block; position:absolute; bottom:3px; right:3px;">&copy;2014 mybets inc. All rights reserved.</span>
+                <span style="color:#15ff03; font-size:12px; display:block; position:absolute; bottom:3px; right:3px;">&copy;2016 betips inc. All rights reserved.</span>
             </div>
         </div>
     </div>

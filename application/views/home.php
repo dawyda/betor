@@ -17,7 +17,26 @@ if(isset($_SESSION["logged"])){
 <link REL="SHORTCUT ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
 <link REL="ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
 <script type="text/javascript" src="<?=base_url();?>assets/js/home.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<script>
+    var _html;
+$(document).ready(function(){
+$('#match_list_cont').load("tips/free");
+});
+function showYester(event)
+{
+    event.preventDefault();
+    _html = $('#match_list_cont').html();
+    $('#match_list_cont').load("tips/yesterday");
+    $('#day_tip').replaceWith('<a href="#" id="day_tip" onclick="showToday(event);" style="color:white; text-decoration:underline; font-size:14px;">Today\'s Tips</a>');
+}
+function showToday(event)
+{
+    event.preventDefault();
+    html = $('#match_list_cont').html(_html);
+    $('#day_tip').replaceWith('<a href="#" id="day_tip" onclick="showYester(event);" style="color:white; text-decoration:underline; font-size:14px;">Yesterday\'s Tips</a>');
+}
+</script>
 <noscript>Please enable Javascript to enjoy your viewing</noscript>
 <title>Home Page | Welcome to Betips.co.ke</title>
 </head>
@@ -108,7 +127,7 @@ if(isset($_SESSION["logged"])){
                     Time: 18:01:08<br />09-03-2014
                     </div>
                     <div id="open_note">
-                    Today's Matches to bet on:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Average Odds:
+                    Today's Matches to bet on:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Average Odds:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="day_tip" onclick="showYester(event);" style="color:white; text-decoration:underline; font-size:14px;">Yesterday's Tips</a>
                     </div>
                 </div>
                 <div class="header">
@@ -126,16 +145,7 @@ if(isset($_SESSION["logged"])){
                         <li style="width:110px; border:none;" >Game Type</li>-->
                     </ul>
                 </div>
-                <div id="match_list_cont" ng-app="myApp" ng-controller="myCtrl">
-				<script>
-					var app = angular.module('myApp', []);
-					app.controller('myCtrl', function($scope, $http) {
-						$http.get("<?=base_url();?>tips/free")
-						.then(function(response) {
-							document.getElementById('match_list_cont').innerHTML = response.data;
-						});
-					});
-				</script> 
+                <div id="match_list_cont">
             <!-- Place matches within here -->
                 <!--use div within lists--><!--
                     <div class="listdiv" style="color:#000;">

@@ -16,6 +16,16 @@ Class Betor_bets extends CI_Model {
         return $query;
     }
 	
+	public function get_yesterdays()
+	{
+		//fetch yesterdays free tips
+		$this->db->select('*')->where("matchdate <", "CURDATE()",FALSE);
+		$this->db->where("matchdate >=", "DATE_SUB(CURDATE(), INTERVAL 1 DAY)", FALSE);
+		$query = $this->db->get("predictions");
+		
+		return $query;
+	}
+	
 	public function fetch_unresulted()
 	{
 		$all_results = array();
