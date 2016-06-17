@@ -25,25 +25,42 @@ class Sms extends CI_Controller {
 	
 	public function payments()
 	{
+		//check if action is set.
 		if($this->input->post("action") !== NULL)
 		{
 			$phone = $this->input->post("phone_number");
 			$action = $this->input->post("action");
 			if($phone !== null && $phone == "0712594022")
 			{
-				//now check action
+				/*
+				*@ now check which action? incoming, outgoing,etc.
+				*/
+				
+				//action incoming
 				if($action == "incoming"){
 					$from = $this->input->post("from");
 					$type = $this->input->post("message_type");
 					$msg = $this->input->post("message");
-					if($from !== NULL && $from == "M-PESA" && $msg !== "")
+					if($from !== NULL && $from == "M-PESA" && $msg !== "" && $type == "sms")
 					{
 						$this->load->model("betor_sms");
 						$msg_info = $this->betor_sms->get_msg_parts($msg);
-						if($msg_info["amount"] >= 500)
+						if($msg_info["amount"] >= 2800)
 						{
-							$credits = $msg_info["amount"] / 500;
-							$made = $this->betor_sms->save_payment($msg_info);
+							
+							$credits = 0;
+							if($msg_info["amount"] == 2800)
+							{
+								$credits = 6;
+							}
+							else if($msg_info["amount"] == 5500)
+							{
+								$credits = 13;
+							}
+							else{//to be set later.
+							}
+							$this->load->model("betor_transactions");
+							$made = $this->betor_transactions->save_payment($msg_info);
 							if($made)
 							{
 								//update user credit and create transaction with narration.
@@ -53,19 +70,24 @@ class Sms extends CI_Controller {
 								//ensure user exists
 								if($user_info !== NULL)
 								{
-									$trans_data = array(
-										"username" => $user_info["username"],
-										"narrative" => "You purchased ".$credits." credits for Ksh ".$msg_info["amount"],
-										"tips" => $credits,
-										"trans_type" => "topup"
+									//user exists. Now update m_type
+									$this->betor_users->update_member_type($user_info["id"],$msg_info["amount"]);
+									//update credits then record transaction
+									$this->load->model("betor_credits");
+									$this->betor_credits->topup($user_info["id"], $credits);
+									$narr = "Purchased ".$credits." tips for 31 days. KES ".$msg_info["amount"];
+									$data = array(
+									"username" => $user_info["username"],
+									"narrative" => ("Purchased ".$credits." tips for 31 days. KES ".$msg_info["amount"]),
+									"tips" => $credits,
+									"trans_type" => "topup"
 									);
-									$credit_data = array(
-										"user_id" => $user_info["id"],
-										"credits" => $credits
-									);
+									$this->betor_transactions->record_transaction($data);
 									
-									$trans_id = $this->betor_sms->record_transaction($trans_data, $credit_data);
-									//top up user credits + trans ^^
+									//all succeeded
+									$this->betor_sms->add_sms(array("phone" => $msg_info["sender_num"], "sms" => "Your subscription was renewed. ".$credits." tips have been added to your account."));
+									$this->output->set_header("Content-Type: application/json");
+									echo '{"events":[{"event":"log","message":"OK. Message received."}]}';
 								}
 								else {
 									$this->betor_sms->add_sms(array("phone" => $msg_info["sender_num"], "sms" => "We are sorry.Your user details were not found.Reverse payment. Use betips.co.ke/signup to register"));
@@ -77,7 +99,7 @@ class Sms extends CI_Controller {
 							}
 						}
 						else{
-							$this->betor_sms->add_sms(array("phone" => $msg_info["sender_num"], "sms" => "You send an amount below the 1 tip limit. Reverse the transaction and send again. Min. is Ksh 500"));
+							$this->betor_sms->add_sms(array("phone" => $msg_info["sender_num"], "sms" => "You send an amount below the 1 tip limit. Reverse the transaction and send again. Min. subscription is Ksh 2,800"));
 						}
 					}
 					else{
@@ -85,16 +107,33 @@ class Sms extends CI_Controller {
 						echo '{"error":{"message:"Client error: MIssing items in message parts."}}';
 					}
 				}
-				else if($action == "test")
+				elseif($action == "test")
 				{
 					$this->output->set_header("Content-Type: application/json");
 					echo '{"events":[{"event":"log","message":"Test to payment server is OK!"}]}';
 				}
-				else if($action == "outgoing")
+				elseif($action == "outgoing")
 				{
-					
+					//get pending sms
+					$this->load->model("betor_sms");
+					$SMSs = $this->betor_sms->get_pending_sms();
+					$resp = '{"events":[{"event":"send","messages":[';
+					foreach($SMSs->result() as $SMS)
+					{
+						$resp .= '{"id":"'.$SMS->id.'", "to":"'.$SMS->phone.'", "message":"'.$SMS->sms.'"},';
+					}
+					$resp .= ']}]}';
+					$this->output->set_header("Content-Type: application/json");
+					echo $resp;
 				}
-				else if($action == "device_status")
+				elseif($action == "send_status")
+				{
+					$this->load->model("betor_sms");
+					$this->betor_sms->update_sms_status($this->input->post("id"), $this->input->post("status"));
+					$this->output->set_header('Content-Type: application/json');
+					echo '{"events":[{"event":"log", "message":"Status for SMS with id '.$this->input->post("id").' was updated successfully on the server."}]}';
+				}
+				elseif($action == "device_status")
 				{
 					
 				}

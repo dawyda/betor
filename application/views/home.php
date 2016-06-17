@@ -23,6 +23,10 @@ if(isset($_SESSION["logged"])){
 $(document).ready(function(){
 $('#match_list_cont').load("tips/free");
 });
+function removeWarning()
+{
+    $('#warning').remove();
+}
 function showYester(event)
 {
     event.preventDefault();
@@ -41,6 +45,23 @@ function showToday(event)
 <title>Home Page | Welcome to Betips.co.ke</title>
 </head>
 <body onload="startTime()">
+    <div id="warning">
+    <div style="z-index:10;position:absolute; background:none; width:100%;height:100%;">
+    <div style="background:white;position:relative;width:800px; height:100%;padding:10px;margin:0 auto;opacity:0.85;display:table;">
+            <h4 style="text-decoration:underline; display:block; margin:5px;">Must Read Before Joining Betips.co.ke</h4>
+Ok. Before joining we would like you and us to be clear on a few things. This is a site offering free and premium tips. Premium tips are offered on games with odds greater than 1.90 on both the home and away teams. 
+We recently received a text from a user claiming they lost money on a bet we had tipped on. The thing is that we give tips of double chance (1X) where the odds range from 1.15 to 1.30. The user saw these odds translating to little profit and went ahead to do multis of the tips – one game messed the multis. Though we don’t discourage multis, keep them to a max. of 2-3 games.<br /><br />
+We come up with predictions by checking many things and when we give a tip as a DC, trust as to have seen the game as risky. Nobody can give a tip with 100% surety unless it is a fixed match – of which we shall give tips on such. If you wish a 100% tip you can go and consult a witch-doctor – we have no such powers. This should not scare you as in long run we will guarantee you profit otherwise we would not have this website. We have had days where we had losing streaks taking me back by KES 20-30k. But we also end up recovering that money in a weekend with profit over. If you sign up wishing to be a millionaire in less than two months, we advise that you chase the government tenders preserved for the youth – there you can inflate prices and smile when cashing your cheque for quick cash.
+<br /><br /><b>My point is regardless of the odds what matters is the success rate of the bet.</b><br /> <br />An odd of 1.4 is 40% percent profit. 
+This is our pricing strategy. A premium tip is equivalent to KES 500. When you redeem a tip and it fails you will be reimbursed with 2 tips over e.g. Say you had 6 tips balance. If we tip on Chelsea v Man City with a home win and the game ends otherwise, your new tip balance will be 7. We guarantee you that before your monthly tips run out and you follow our staking advice you will have achieved good profit.
+We won’t use gimmicks like giving tips on the current week’s jackpots with local bookies. If we could do such then trust me that we would have won those JPs several times and you would all know it. Some games in the jackpots will have tips which we shall give but don’t expect us to tip you on the jackpot as a whole.<br />
+Now that we assume you have read this page, you can go ahead and continue using the site by clicking the continue button below.
+<input type="button" value="Continue >>" style="postion:relative; margin:25px 5px 0px 0px; display:block;float:right;" onclick="removeWarning();" />
+        </div>
+        </div>
+    <div style="position:absolute;opacity: 0.70;width:100%;height:100%; background:grey; z-index:5;">
+    </div>
+    </div>
     <div id="cont">
     	<div id="top-head">
         	<div id="top-nav">

@@ -7,5 +7,26 @@ Class Betor_transactions extends CI_Model {
         $this->load->database();
     }
 	
+	public function record_transaction($data)
+	{
+		if($this->db->insert("transactions", $data))
+        {
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+	}
 	
+	//save to payments table
+    public function save_payment($data)
+    {
+       if($this->db->insert("payments", $data))
+        {
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
 }

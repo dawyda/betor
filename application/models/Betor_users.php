@@ -91,6 +91,9 @@ Class Betor_Users extends CI_Model {
 		else{return NULL;}
 	}
     
+	/**
+	*@ gets user credit info;
+	**/
     public function get_user_credit($user_id)
     {
         $this->db->select('balance, expiry, last_trans_id');
@@ -105,6 +108,35 @@ Class Betor_Users extends CI_Model {
 		$query = $this->db->select("name")->where("id",$mtype)->get("member_types");
 		$row = $query->row();
 		return $row->name;
+	}
+	
+	/**
+	* @ update mtype to 2 or 3 depending on amount send
+	* @ 5500 is 3(platinum), 2800 is 2(premium)
+	**/
+	public function update_member_type($user_id, $amount)
+	{
+		if($amount == 2800)
+		{
+			//set premium
+			$data["m_type"] = 2;
+			$this->db->where("id", $userid);
+			$this->db->update("users", $data);
+			return TRUE;
+		}
+		else if($amount => 5500)
+		{
+			//set platinum
+			$data["m_type"] = 3;
+			$this->db->where("id", $userid);
+			$this->db->update("users", $data);
+			return TRUE;
+		}
+		else
+		{
+			//user sent less
+			return FALSE;
+		}
 	}
     
     public function add_new_user($user)

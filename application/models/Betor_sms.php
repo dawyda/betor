@@ -32,36 +32,6 @@ Class Betor_sms extends CI_Model {
         
         return $msgitems;
 	}
-    
-    //save to payments table
-    public function save_payment($data, $data1)
-    {
-        if($this->db->insert("payments", $data))
-        {
-			$id = $this->db->insert_id();
-			
-			$this->db->set('balance', 'balance+'.$data1["credits"], FALSE);
-			$this->db->set("last_trans_id",$id,FALSE);
-			$this->db->set("expiry","DATE_ADD(expiry, INTERVAL 30 DAY)", FALSE);
-			$this->db->where('user_id', $data1["user_id"]);
-			$this->db->update('credits');
-			
-        }
-        else{
-            return FALSE;
-        }
-    }
-	
-	public function record_transaction($data)
-	{
-		if($this->db->insert("transactions", $data))
-        {
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-	}
 	
 	public function add_sms($data)
 	{
@@ -77,8 +47,14 @@ Class Betor_sms extends CI_Model {
     //get SMS to send to clients.
     public function get_pending_sms()
     {
-        $query = $this->db->select("*")->where("status","new")->get("pending_sms");
+        $query = $this->db->select("id,phone,sms")->where("status","new")->limit(10);->get("pending_sms");
         return $query;
     }
+	
+	//update from phone on outgoing message status
+	public function update_sms_status($id, $status)
+	{
+		$this->db->set("status", $status)->where("id",$id)->update("pending_sms");
+	}
 }
     
