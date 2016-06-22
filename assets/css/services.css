@@ -1,12 +1,13 @@
 @charset "utf-8";
 /* CSS */
 div#services_banner{
-	height:250px; width:960px;
+	min-height:250px;
+	width:100%;
 	position:relative;
-	background:url(/betor/assets/img/service-banner.png) no-repeat;
 	display:block;
 	margin-bottom:10px;
-	font-style:italic;
+	background-color:#FFF;
+	display:inline-block;
 }
 ul#services-list{
 	display:inline-block;
@@ -40,4 +41,70 @@ ul#services-list li{
 	position:relative;
 	width:960px; height:425px;
 	padding:10px;
+}
+/**
+* @ price tags
+*/
+div.tag-holder{
+	position:relative;
+	display:inline-block;
+	min-height:200px;
+	width:auto;
+	background-color:#FFF;
+	border-radius:5px;
+	border:1px solid #C2C2C2;
+	box-shadow:1px 1px 5px #8A8A8A;
+	margin:10px 20px 10px 10px;
+	vertical-align: top;
+}
+div.tag-header{
+	position:relative;
+	border-radius:5px 5px 0px 0px;
+	height:105px; width:inherit;
+	background-color:#F00;
+	padding:5px;
+	text-align:center;
+	color:white;
+}
+h1.tag-subscription{
+	font-size:24pt;
+	font-weight:bold;
+	display:block;
+	margin-bottom:7px;
+}
+span.tag-price{
+	font-size:18pt;
+	margin-bottom:5px;
+	display:block;
+}
+span.tag-period{
+	font-style:italic;
+	font-size:14pt;
+}
+div.tag-body{
+	position:relative;
+	min-height:100px;
+	display:inline-block;
+	width:inherit;
+	padding:10px;
+}
+ul.tag-list{
+	margin:0px; padding:5px;
+	list-style:none;
+}
+ul.tag-list li{
+	display:block;
+	margin-bottom:8px;
+	font-size:14.3pt;
+	color:#2E2E2E;
+}
+.subscriptions{
+	display:block;
+	margin:5px;
+	position:relative;
+	color:white; 
+	background:#013242;
+	height:35px; width:98%;
+	font-size:20pt;
+	padding-left:5px;
 }

@@ -26,13 +26,40 @@ class Tips extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('home');
+		if(!(isset($_SESSION["logged"]) && $_SESSION["logged"]))
+		{
+			redirect("home");
+			exit(0);
+		}
+		//check user account type
+		$this->load->model("betor_users");
+		$cinfo = $this->betor_users->get_user_credit($_SESSION["userid"]);
+		//save to session for later use;
+		$this->session->m_type = $cinfo["m_type"];
+		
+		if($cinfo["m_type"] === 1) //free user
+		{
+			redirect("home");
+			exit(0);
+		}
+		else if($cinfo["m_type"] === 2) //premium user
+		{
+			//do premium stuff
+			
+		}
+		else if($cinfo["m_type"] === 3) //platinum user
+		{
+			//do platinum stuff
+			
+		}
+		else{//default to free user
+			redirect("home");
+			exit(0);
+		}
 	}
 	
 	public function valuebets()
 	{
-		//check session and see if user is enrolled in premium/platinum
-		//if free user display value bets with no tips
 	}
 	
 	public function underdogs()
@@ -40,9 +67,9 @@ class Tips extends CI_Controller {
 		
 	}
 	
+	//default view
 	public function premium()
 	{
-		
 	}
 	
 	//free predictions displayed on home page.

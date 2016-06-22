@@ -11,7 +11,7 @@ Class Betor_transactions extends CI_Model {
 	{
 		if($this->db->insert("transactions", $data))
         {
-            return TRUE;
+            return $this->db->insert_id();
         }
         else{
             return FALSE;

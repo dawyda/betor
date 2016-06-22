@@ -84,7 +84,7 @@ Class Betor_Users extends CI_Model {
 	
 	public function get_user_from_num($phone)
 	{
-		$query = $this->db->select('*')->where('phone', $phone)->get('users');
+		$query = $this->db->select('*')->like('phone', substr($phone,-7))->get('users');
 		if($query->num_rows() > 0){
 			return $row = $query->row_array();
 		}
@@ -111,32 +111,13 @@ Class Betor_Users extends CI_Model {
 	}
 	
 	/**
-	* @ update mtype to 2 or 3 depending on amount send
-	* @ 5500 is 3(platinum), 2800 is 2(premium)
+	* @ update mtype 
 	**/
-	public function update_member_type($user_id, $amount)
+	public function update_member_type($user_id, $type)
 	{
-		if($amount == 2800)
-		{
-			//set premium
-			$data["m_type"] = 2;
-			$this->db->where("id", $userid);
-			$this->db->update("users", $data);
-			return TRUE;
-		}
-		else if($amount => 5500)
-		{
-			//set platinum
-			$data["m_type"] = 3;
-			$this->db->where("id", $userid);
-			$this->db->update("users", $data);
-			return TRUE;
-		}
-		else
-		{
-			//user sent less
-			return FALSE;
-		}
+		$this->db->where("id", $userid);
+		$this->db->set("m_type",$type);
+		$this->db->update("users");
 	}
     
     public function add_new_user($user)
@@ -157,4 +138,22 @@ Class Betor_Users extends CI_Model {
         }
         else{ return FALSE; }        
     }
+	
+	/**
+	* @ update user password
+	**/
+	public function update_user_pwd($id, $newpassword)
+	{
+		$query = $this->db->select('creation_date')->where('id',$id)->get('users');
+        $row = $query->row();
+        if(isset($row->creation_date)){
+            $password = sha1($newpassword.$row->creation_date);
+            $this->db->set("password", $password);
+			$this->db->set("pass_change", "NOW()", FALSE);
+			$this->db->where("id",$id);
+			$this->db->update("users");
+			return TRUE;
+        }
+        else{ return FALSE; }
+	}
 }

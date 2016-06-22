@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/css/services.css" type="text/css" media="screen" />
 <link REL="SHORTCUT ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
 <link REL="ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
-<title>Services | Services on betips.co.ke</title>
+<title>Services - Betips.co.ke - Free soccer tips, premium tips, football predictions, betting tips, betting advice, betips kenya</title>
 </head>
 <body>
  <div id="cont">
@@ -44,7 +44,87 @@
         </div>
         <div>
             <div id="services_banner">
-                We give you the confidence to bet with the assurance of big wins.
+                <span class="subscriptions">Monthly Subscriptions</span>
+                <div class="tag-holder"><!-- start of tag holder-->
+                    <div class="tag-header">
+                        <h1 class="tag-subscription">Premium</h1>
+                        <span class="tag-price">KES 3,800/=</span>
+                        <span class="tag-period">Monthly</span>
+                    </div>
+                    <div class="tag-body">
+                        <ul class="tag-list">
+                            <li>Tips on GG/NG</li>
+                            <li>Tips on 1 X 2</li>
+                            <li>Tips on Value bets</li>
+                            <li>Weekly Jackpot templates</li>
+                            <li>Tips on Over/Under 2.5</li>
+                            <li>SMS Alerts</li>
+                        </ul>
+                    </div>
+                </div><!---end of tag holder-->
+                <div class="tag-holder"><!-- start of tag holder-->
+                    <div class="tag-header">
+                        <h1 class="tag-subscription">Platinum</h1>
+                        <span class="tag-price">KES 5,500/=</span>
+                        <span class="tag-period">Monthly</span>
+                    </div>
+                    <div class="tag-body">
+                        <ul class="tag-list">
+                            <li>All premium services</li>
+                            <li>Fixed-match alerts</li>
+                            <li>Tips on draws</li>
+                            <li>Weekly Jackpot templates</li>
+                            <li>SMS & Email Alerts</li>
+                            <li>Bet Advice</li>
+                            <li>Bet Consulting</li>
+                            <li>Mutli-bet combos</li>
+                        </ul>
+                    </div>
+                </div><!---end of tag holder-->
+                <span class="subscriptions">Weekly Subscriptions</span>
+                <div class="tag-holder"><!-- start of tag holder-->
+                    <div class="tag-header">
+                        <h1 class="tag-subscription">Premium</h1>
+                        <span class="tag-price">KES 1,000/=</span>
+                        <span class="tag-period">Weekly</span>
+                    </div>
+                    <div class="tag-body">
+                        <ul class="tag-list">
+                            <li>All premium services</li>
+                            <li>Valid for 7 days</li>
+                        </ul>
+                    </div>
+                </div><!---end of tag holder-->
+                <div class="tag-holder"><!-- start of tag holder-->
+                    <div class="tag-header">
+                        <h1 class="tag-subscription">Platinum</h1>
+                        <span class="tag-price">KES 1,500/=</span>
+                        <span class="tag-period">Weekly</span>
+                    </div>
+                    <div class="tag-body">
+                        <ul class="tag-list">
+                            <li>All platinum services</li>
+                            <li>Valid for 7 days</li>
+                        </ul>
+                    </div>
+                </div><!---end of tag holder-->
+                <span class="subscriptions">Other Subscriptions</span>
+                <div class="tag-holder"><!-- start of tag holder-->
+                    <div class="tag-header">
+                        <h1 class="tag-subscription">On Demand</h1>
+                        <span class="tag-price">KES 500/=</span>
+                        <span class="tag-period">Per Tip</span>
+                    </div>
+                    <div class="tag-body">
+                        <ul class="tag-list">
+                            <li>Tips on GG/NG</li>
+                            <li>Tips on Over/Under 2.5</li>
+                            <li>Tips on 1 X 2</li>
+                            <li>Value bets</li>
+                            <li>No Alerts</li>
+                        </ul>
+                    </div>
+                </div><!---end of tag holder-->
             </div>
             <ul id="services-list">
                 <li>
@@ -73,18 +153,12 @@
                     </div>
                 </li>
             </ul>
-            <div id="price-list">
-                <img style="position:relative; vertical-align: top; display:inline-block; top:0px; margin-right:20px;" src="<?=base_url();?>assets/img/betor-price-list-premium.png" alt="premium tips list"/>
-                <img style="position:relative; vertical-align: top; display:inline-block; top:0px;" src="<?=base_url();?>assets/img/betor-price-list-platinum.png" alt="premium tips list"/>
-            </div>
         </div>
         <div id="sub_footer">
             <div class="sub_tabs" style="padding-left:20px;">
                 <span class="sub_titles">Contact Us</span>
                 <div>
                 	<span style="font-weight:bold; font-size:16px; color:#42f4ff; display:block;">Nairobi</span>
-                    <span style="font-size:15px; line-height:16px; color:#42f4ff; display:block;">Gansta drive, All buildings</span>
-                    <span style="font-size:15px; line-height:16px; color:#42f4ff; display:block;">1<sup>st</sup> Floor, Hall 6</span>
                     <span style="font-size:15px; line-height:16px; color:#42f4ff; display:block;">P.O Box 0988-98765</span>
                     <span style="font-size:15px; line-height:16px; color:#42f4ff; display:block;">Westlands</span>
                     <address><span style="position:relative; line-height:17px; font-size:15px; display:block; top:5px;"><a href="mailto:business@mybets.co.ke" style="color:#1cff04;">business@mybets.co.ke</a></span>

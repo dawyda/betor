@@ -28,7 +28,7 @@ Class Betor_credits extends CI_Model {
 	}
 	
 	//topup user credits after payment received
-	public function topup($user_id, $credits)
+	public function topup($user_id, $credits, $trans_id)
 	{
 		//and also expiry
 		$query = $this->db->select("balance")->where("user_id", $user_id)->get("credits");
@@ -36,6 +36,7 @@ Class Betor_credits extends CI_Model {
 		$bal += $credits;
 		$this->db->set("balance", $bal, FALSE);
 		$this->db->set("expiry","DATE_ADD(NOW(), INTERVAL 31 DAY)",FALSE);
+		$this->db->set("last_trans_id", $trans_id);
 		$this->db->where("user_id", $user_id);
 		$this->update("credits");
 	}

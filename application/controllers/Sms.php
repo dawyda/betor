@@ -30,7 +30,7 @@ class Sms extends CI_Controller {
 		{
 			$phone = $this->input->post("phone_number");
 			$action = $this->input->post("action");
-			if($phone !== null && $phone == "0712594022")
+			if(($phone !== null) && ($phone == "0712594022"))
 			{
 				/*
 				*@ now check which action? incoming, outgoing,etc.
@@ -45,13 +45,17 @@ class Sms extends CI_Controller {
 					{
 						$this->load->model("betor_sms");
 						$msg_info = $this->betor_sms->get_msg_parts($msg);
-						if($msg_info["amount"] >= 2800)
+						if($msg_info["amount"] >= 1000)
 						{
 							
 							$credits = 0;
 							if($msg_info["amount"] == 2800)
 							{
 								$credits = 6;
+							}
+							else if($msg_info["amount"] == 1000)
+							{
+								$credits = 2;
 							}
 							else if($msg_info["amount"] == 5500)
 							{
@@ -104,7 +108,7 @@ class Sms extends CI_Controller {
 					}
 					else{
 						$this->output->set_header("Content-Type: application/json");
-						echo '{"error":{"message:"Client error: MIssing items in message parts."}}';
+						echo '{"error":{"message:"Client error: Missing items in message parts."}}';
 					}
 				}
 				elseif($action == "test")

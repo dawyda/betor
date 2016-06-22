@@ -1,0 +1,20 @@
+#prem-cont{
+	position:relative;
+	width:1250px;
+	height:inherit;
+	margin:0 auto;
+	border:none;
+}
+#top-head{
+	position:relative;
+	background:url(/betor/assets/img/top_bg_prem.png);
+	width:1250px;
+	height:125px;
+}
+#tips-cont{
+	position:relative;
+	width:inherit;
+	background-color:white;
+	min-height:600px;
+	display:inline-block;
+}
