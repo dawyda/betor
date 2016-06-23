@@ -38,6 +38,7 @@ class Logout extends CI_Controller {
 				$_SESSION['username'],
 				$_SESSION['userid'],
 				$_SESSION["logged_time"],
+				$_SESSION['m_type'],
 				$_SESSION["user_ip"]
 			);
 			redirect('home/');

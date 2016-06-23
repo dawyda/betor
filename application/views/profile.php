@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<div id="top-head" style="background:#494949;">
         	<div id="top-nav">
             	<ul>
-                	<li><a href="<?=base_url();?>home">Free tips</a></li>
+                	<li><a href="<?=base_url();?>">Free tips</a></li>
                     <li><a href="<?=base_url();?>howto">How to bet</a></li>
                     <li><a href="#" style="border:none; color:#fff; width:auto; font-size:14px;">M-Pesa to 0712594022</a></li>
                 </ul>
@@ -29,11 +29,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="main-nav">
             	<ul>
                 	<li><a href="<?=base_url();?>home">Home</a></li>
-                    <li><a href="<?=base_url();?>tips/valuebets">Value Bets</a></li>
-                    <li><a href="withdraw.php">Buy Credits</a></li>
-                    <li><a href="#">Messages</a></li>
+                    <li><a href="<?=base_url();?>tips">Premium/Platinum</a></li>
+                    <li><a href="#">Buy Credits</a></li>
+                    <!--<li><a href="#">Messages</a></li>-->
                     <li><a href="<?=base_url();?>security/changepwd">Change Password</a></li>
-                    <li style="float:right;"><a href="<?=base_url();?>logout">Logout [<?php echo $_SESSION["username"]; ?>]</a></li>
+                    <li style="float:right;"><a href="<?=base_url();?>logout"><b>Logout</b></a></li>
                 </ul>
             </div>
         </div>

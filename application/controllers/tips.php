@@ -26,51 +26,63 @@ class Tips extends CI_Controller {
 	
 	public function index()
 	{
-		if(!(isset($_SESSION["logged"]) && $_SESSION["logged"]))
+		if(!isset($_SESSION['logged']) || $_SESSION['logged'] == FALSE)
 		{
-			redirect("home");
-			exit(0);
+			redirect('home/');
 		}
-		//check user account type
+		
 		$this->load->model("betor_users");
+		$uinfo = $this->betor_users->get_user_info($_SESSION["username"]);
 		$cinfo = $this->betor_users->get_user_credit($_SESSION["userid"]);
-		//save to session for later use;
-		$this->session->m_type = $cinfo["m_type"];
+		$this->session->m_type = $uinfo["m_type"];
 		
-		if($cinfo["m_type"] === 1) //free user
+		if($this->session->m_type == 1) //free user
 		{
 			redirect("home");
 			exit(0);
 		}
-		else if($cinfo["m_type"] === 2) //premium user
-		{
-			//do premium stuff
-			
+		else{
+			$acc_data = array(
+				"fullname" => $uinfo["fullname"],
+				"acc_name" => $this->betor_users->get_member_type($uinfo["m_type"]),
+				"balance" => $cinfo["balance"],
+				"expiry" => ((new DateTime($cinfo["expiry"]))->format("d-m, h:m A"))
+			);
+			if($this->session->m_type == 2 || $this->session->m_type == 4) //premium user
+			{
+				/**
+				*@ load premium view.
+				*@ Tips on GG/NG
+				*@ Tips on 1X2 surebets
+				*@ Tips on value bets
+				*@ Tips on Ov/Un bets
+				*@ Weekly JP template
+				*@ if user has set to receive SMS alerts then they will receive...handled in  SMS controller not here/admin side maybe??
+				**/
+				
+				$this->load->view("premtips", $acc_data);
+			}
+			else if($this->session->m_type == 3 || $this->session->m_type == 5) //platinum user
+			{
+				/**
+				*@ load premium view.
+				*@ Tips on GG/NG
+				*@ Tips on 1X2 surebets
+				*@ Tips on value bets
+				*@ Tips on Ov/Un bets
+				*@ Weekly JP template
+				*@ All other tips available
+				*@ if user has set to receive SMS alerts then they will receive...handled in  SMS controller not here/admin side maybe??
+				**/
+				
+				$this->load->view("plattips", $acc_data);
+			}
+			else{//default to free user
+				redirect("home");
+				exit(0);
+			}
 		}
-		else if($cinfo["m_type"] === 3) //platinum user
-		{
-			//do platinum stuff
-			
-		}
-		else{//default to free user
-			redirect("home");
-			exit(0);
-		}
-	}
-	
-	public function valuebets()
-	{
-	}
-	
-	public function underdogs()
-	{
-		
-	}
-	
-	//default view
-	public function premium()
-	{
-	}
+	}//end of index func 
 	
 	//free predictions displayed on home page.
 	public function free()

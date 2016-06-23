@@ -45,7 +45,7 @@ function showToday(event)
 <title>Home Page | Welcome to Betips.co.ke</title>
 </head>
 <body onload="startTime()">
-    <div id="warning">
+    <!--<div id="warning">
     <div style="z-index:10;position:absolute; background:none; width:100%;height:100%;">
     <div style="background:white;position:relative;width:800px; height:100%;padding:10px;margin:0 auto;opacity:0.85;display:table;">
             <h4 style="text-decoration:underline; display:block; margin:5px;">Must Read Before Joining Betips.co.ke</h4>
@@ -61,7 +61,7 @@ Now that we assume you have read this page, you can go ahead and continue using 
         </div>
     <div style="position:absolute;opacity: 0.70;width:100%;height:100%; background:grey; z-index:5;">
     </div>
-    </div>
+    </div>-->
     <div id="cont">
     	<div id="top-head">
         	<div id="top-nav">

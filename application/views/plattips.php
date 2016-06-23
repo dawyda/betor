@@ -59,7 +59,6 @@
             <div id="main-nav">
             	<ul>
                 	<li><a href="<?=base_url();?>">Home</a></li>
-                    <li><a href="<?=base_url();?>home/profile">Profile</a></li>
                     <li><a href="<?=base_url();?>terms">Terms &amp; Conditions</a></li>
                     <li><a href="<?=base_url();?>about/services">Services</a></li>
                     <li style="margin-right:10px; float:right;"><a href="<?=base_url();?>logout"><b>Logout</b></a></li>
@@ -67,12 +66,7 @@
             </div>
         </div><!-- END OF DIV TOP HEAD-->
         <div id="tips-cont">
-            <div id="credit-info">
-                <span style="font-size:13pt;color:#2B2B2B;">Dear <b><?=$fullname;?></b>,</span><br/>
-                Account type : <span style="color:black;"><?=$acc_name;?></span><br/>
-                Tips bal. : <span style="color:black;"><b><?=$balance;?></b> Tips. <?php if($balance < 1){ echo '<a style="color:#0000EE; font-size:11pt;" href="#">topup now?</a>';}?></span><br/>
-                Expiry: <span style="color:green;"><?=$expiry;?></span>
-            </div>
+            <div id="credit-info">Credit Info to shown here.</div>
             <div id="tip-info">
                 <div id="left-hold">
                     <div class="tip-holder"><!--tip holder begins-->
@@ -112,7 +106,7 @@
                     </div><!--tip holder ends-->
                     <div class="tip-holder"><!--tip holder begins-->
                         <span class="tip-name">Join Platinum</span>
-                        <table class="avail-tips-list">
+                        <table class="avail-tips-list" id="jp">
                             <tr><th style="width:60px;">Tip ID</th><th style="width:100px;">Date Time</th><th style="width:135px;">Country</th><th style="width:130px;">League</th><th style="width:240px;">Game</th><th style="width:60px;">Weight</th><th style="width:90px;">Avg. Odds</th><th style="width:141px;">Action</th></tr>
                             <tr class="data-tr"><td colspan="7">Subscribe to platinum to enjoy more tip markets.</td></tr>
                         </table>
