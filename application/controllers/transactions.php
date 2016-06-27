@@ -18,9 +18,43 @@ class Transactions extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('session');
+	}
+	
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->view('home');
+		if(!isset($_SESSION['logged']) || $_SESSION['logged'] == FALSE)
+		{
+			redirect('home/');
+		}
+	}
+	
+	public function account()
+	{
+		if(!isset($_SESSION['logged']) || $_SESSION['logged'] == FALSE)
+		{
+			die("You are not logged in!");
+		}
+		
+		$action = $this->input->get("action");
+		
+		$this->load->model("betor_credits");
+		$cinfo = $this->betor_credits->get_user_credit($this->session->userid);
+		//resp by action
+		switch ($action) {
+			case 'bal':
+				echo $cinfo["balance"];
+				break;
+			case 'exp':
+				echo $cinfo["expiry"];
+				break;
+			default:
+				echo "OK";
+				break;
+		}
 	}
 }

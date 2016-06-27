@@ -19,12 +19,13 @@ Class Betor_credits extends CI_Model {
     }
 	
 	//deduct user credit balance.
-	public function redeem_user_credit($user_id, $credits)
+	public function redeem_user_credit($user_id, $trans_id)
 	{
-		$this->db->set("balance", "balance - ".$credits, FALSE);
+		$this->db->set("balance", "balance - 1", FALSE);
+		$this->db->set("last_trans_id", $trans_id);
 		$this->db->where("user_id", $user_id);
-		$this->update("credits");
-		return FALSE;
+		$this->db->update("credits");
+		return TRUE;
 	}
 	
 	//topup user credits after payment received
@@ -32,12 +33,13 @@ Class Betor_credits extends CI_Model {
 	{
 		//and also expiry
 		$query = $this->db->select("balance")->where("user_id", $user_id)->get("credits");
-		$bal = ($query->row())->balance;
+		$bal = $query->row();
+		$bal = $bal->balance;
 		$bal += $credits;
 		$this->db->set("balance", $bal, FALSE);
 		$this->db->set("expiry","DATE_ADD(NOW(), INTERVAL 31 DAY)",FALSE);
 		$this->db->set("last_trans_id", $trans_id);
 		$this->db->where("user_id", $user_id);
-		$this->update("credits");
+		$this->db->update("credits");
 	}
 }

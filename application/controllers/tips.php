@@ -38,8 +38,8 @@ class Tips extends CI_Controller {
 		
 		if($this->session->m_type == 1) //free user
 		{
-			redirect("home");
-			exit(0);
+			$this->load->view("free_view");
+			//exit(0);
 		}
 		else{
 			$acc_data = array(

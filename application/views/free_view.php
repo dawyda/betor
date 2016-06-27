@@ -8,74 +8,16 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/css/prem-tips.css" type="text/css" media="screen" />
 <link REL="SHORTCUT ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
 <link REL="ICON" HREF="<?=base_url();?>assets/img/icon.ico" type="image/x-icon">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>
-    $(document).ready(loadContent);
-    
-    function loadContent()
-    {
-        $.get('paid_tips/getbets', {"id":9}, function(data) {
-            $('#sb').append(data);
-        });
-        $.get('paid_tips/getbets', {"id":3}, function(data) {
-            $('#vb').append(data);
-        });
-        $.get('paid_tips/getbets', {"id":5}, function(data) {
-            $('#ggng').append(data);
-        });
-        $.get('paid_tips/getbets', {"id":7}, function(data) {
-            $('#ou2').append(data);
-        });
-        /*
-        $.get('paid_tips/getbets', {"id":9}, function(data) {
-            $('#sb').append(data);
-        });*/
-    }
-    
-    function showTip(id, event)
-    {
-        event.preventDefault();
-        
-        var confirm = window.confirm("Show tip for?\n1 tip will be deducted from your tips balance.\nIf earlier viewed click Redeemed Tips on menu.");
-        if(confirm){
-            //call showtip server script.
-            //set Gif
-            var dom = $('#tip-td'+id);
-            dom.html('<img src="assets/img/premium-gif-small.gif" width="30" height="23" alt="load-gif-betips.co.ke" />');
-            $.post("paid_tips/redeem",
-            {
-                "action":"redeem",
-                "tipid":id
-            },
-            function(data){
-                if(data.success == 1)
-                {
-                    dom.html('<span style="color:#0000EE;"><b>' + data.tip + '</b></span>');
-                    $('#odd' + id).html(data.odds);
-                    $("#tip-bal").load("transactions/account?action=bal");
-                }
-                else if(data.success == 0){
-                    dom.html(data.msg);
-                }
-                else{
-                    dom.html("<span style='color:#EE0000;'>Error</span>");
-                }
-            },
-            "json"
-            );
-        }
-    }
-</script>
 <noscript>Enable Javascript to use this page.</noscript>
-<title>Premium Paid Tips - Betips.co.ke - GG, NG, 1X2, O/U2.5, soccer tips, football predictions</title>
+<title>Premium Tips (UNPAID) - Betips.co.ke - GG, NG, 1X2, O/U2.5, soccer tips, football predictions</title>
 </head>
 <body>
  <div id="prem-cont">
     	<div id="top-head">
         	<div id="top-nav">
             	<ul>
-                	<li><a href="#">Leagues</a></li>
-                    <li><a href="<?=base_url();?>howto">How to bet</a></li>
+                	<li><a href="<?=base_url();?>">Free Tips</a></li>
+                    <li><a href="<?=base_url();?>howto">How to</a></li>
                     <!--<li><a href="#" style="border:none; color:#f7ef00;">594022</a></li>-->
                 </ul>
             </div>
@@ -84,7 +26,7 @@
             	<ul>
                 	<li><a href="<?=base_url();?>">Home</a></li>
                     <li><a href="<?=base_url();?>home/profile">Profile</a></li>
-                    <li><a href="<?=base_url();?>terms">Terms &amp; Conditions</a></li>
+                    <li><a href="<?=base_url();?>terms">Redeemed Tips</a></li>
                     <li><a href="<?=base_url();?>about/services">Services</a></li>
                     <li style="margin-right:10px; float:right;"><a href="<?=base_url();?>logout"><b>Logout</b></a></li>
                 </ul>
@@ -92,10 +34,10 @@
         </div><!-- END OF DIV TOP HEAD-->
         <div id="tips-cont">
             <div id="credit-info">
-                <span>Dear <b><?=$fullname;?></b>,</span><br/>
-                Account type : <span style="color:black;"><?=$acc_name;?></span><br/>
-                Tips bal. : <span style="color:black;"><b id="tip-bal"><?=$balance;?></b> Tips. <?php if($balance < 1){ echo '<a style="color:#0000EE; font-size:11pt;" href="#">topup now?</a>';}?></span><br/>
-                Expiry: <span style="color:green;"><?=$expiry;?></span>
+                <span>Dear <b><?=$_SESSION["username"];?></b>,</span><br/>
+                Account type : <span style="color:black;">Free</span><br/>
+                Tips bal. : <span style="color:black;"><b id="tip-bal">0</b> Tips. <a style="color:#0000EE; font-size:11pt;" href="#">topup now?</a></span><br/>
+                Expiry: <span style="color:green;">Not paid</span>
             </div>
             <div id="tip-info">
                 <div id="left-hold">

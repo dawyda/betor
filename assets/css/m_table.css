@@ -1,0 +1,251 @@
+@charset "utf-8";
+/* CSS Document */
+#table_cont{
+	position:relative;
+	display:block;
+	margin-bottom:1px;
+	width:960px;
+	height:750px;
+	background:url(/betor/assets/img/table_bg.jpg) repeat-x;
+	background-color:white;
+}
+#table_cont .header{
+	position:relative;
+	background:url(/betor/assets/img/table_heads_bg.png) repeat-x;
+	width:958px;
+	height:30px;
+	border:1px solid #b81902;
+	border-radius:2px;
+	box-shadow:1px 1px 1px #000;
+}
+#table_cont .header #time_holder{
+	position:relative;
+	color:#00fe00;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding-left:5px;
+	float:left;
+}
+#table_cont .header #open_note{
+	position:relative;
+	color:#ffff00;
+	float:left;
+	font:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	left:140px;
+	text-shadow:1px 1px 1px #010101;
+}
+#table_cont .header .select_holder{
+	position:relative;
+	float:left;
+	font-size:14px;
+	color:#ffff00;
+}
+#table_cont .header .select_holder select{
+	position:relative;
+	width:150px;
+	float:left;
+}
+#table_cont .header ul{
+	position:relative;
+	top:3px;
+}
+#table_cont .header ul li{
+	display:block;
+	position:relative;
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#ffff00;
+	text-shadow:1px 1px 1px #000;
+	border-right:1px dashed #ffff00;
+	text-align:center;
+}
+#table_cont #match_list_cont{
+	display:block;
+	position:relative;
+	width:960;
+	height:685px;
+	border:1px solid #6F6F6F;
+	overflow:scroll auto;
+}
+#table_cont #match_list_cont div.listdiv{
+	display:block;
+	width:inherit;
+	height:28px;
+	border-bottom:1px solid #2cb5ff;
+}
+#table_cont #match_list_cont div.listdiv .match_list_ul{
+	position:relative;
+	cursor:default;
+	display:block;
+	width:inherit;
+	height:28px;
+	list-style-type:none;
+	padding:0;
+}
+#table_cont #match_list_cont div.listdiv .match_list_ul:hover{
+	background-color:#FDFDFD;
+	transition:background-color 0.5s ease-out;
+}
+#table_cont #match_list_cont div.listdiv .match_list_ul li{
+	position:relative;
+	display:block;
+	float:left;
+	font:Arial;
+	font-size:10pt !important;
+	line-height:14px;
+	text-align:center;
+}
+.padli{
+	position:relative;
+	top:0px;
+}
+li.padli a{
+	display:block;
+	height:23px;
+	position:relative;
+	text-decoration:none;
+	color:inherit;
+	padding-top:6px;
+	outline:none;/*#5B5B5B;*/
+}
+/* li.padli a:hover{
+	text-decoration:underline;
+} */
+li.padli a.better{
+	position:relative;
+	top:4px;
+	font-size:8.6pt !important;
+	display:block;
+	height:15px;
+	border:1px solid #2cb5ff;
+	padding:4px;
+	margin:0px 5px 0px 5px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #DBDBDB),
+	color-stop(1, #FFFFFF)
+);
+background-image: -o-linear-gradient(bottom, #DBDBDB 0%, #FFFFFF 100%);
+background-image: -moz-linear-gradient(bottom, #DBDBDB 0%, #FFFFFF 100%);
+background-image: -webkit-linear-gradient(bottom, #FAFAFA 0%, #FFFFFF 100%);
+background-image: -ms-linear-gradient(bottom, #DBDBDB 0%, #FFFFFF 100%);
+background-image: linear-gradient(to bottom, #DBDBDB 0%, #FFFFFF 100%);
+transition:all 0.3s ease;
+}
+li.padli a.better:hover{	
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #1c63ff),
+	color-stop(1, #074dff)
+);
+background-image: -o-linear-gradient(bottom, #1c63ff 0%, #074dff 100%);
+background-image: -moz-linear-gradient(bottom, #1c63ff 0%, #074dff 100%);
+background-image: -webkit-linear-gradient(bottom, #1c63ff 0%, #074dff 100%);
+background-image: -ms-linear-gradient(bottom, #1c63ff 0%, #074dff 100%);
+background-image: linear-gradient(to bottom, #1c63ff 0%, #074dff 100%);
+color:#FFF; text-decoration:none;
+}
+/**end bet table **/
+#bet_calc{
+	position:absolute;
+	right:0px;
+	width:220px;
+	height:665px;
+	border:none;
+	z-index:5;
+	background:url(/betor/assets/img/bet_calc_bg.jpg) no-repeat;
+	background-color:#1B1B1B;
+	color:#42f4ff;
+	font-size:16px;
+	padding:10px;
+}
+/* BETS FORM */
+#bet_form .bet_txt{
+	border:1px solid #3FC;
+	background-color:#FFF;
+	color:#1D1D1D;
+	max-width:80px;
+	padding:3px;
+	margin-bottom:5px;
+	height:14px;
+	display:inline-block;
+	font-weight:bold;
+	font-size:14px;
+}
+#bet_form label{
+	display:inline-block;
+	min-width:120px;
+	font-size:14px;
+	color:#dcff52;
+}
+#mypicks{
+	font-size:12px;
+	margin-bottom:20px;
+	margin-top:7px;
+	border-bottom:1px solid #707070;
+	border-top:1px solid #707070;
+	padding-bottom:5px;
+}
+#mypicks ul{
+	margin:0;
+	padding:0px;
+}
+#mypicks ul li{
+	display:block;
+	list-style:none;
+	color:#23ff0c;
+	background:#000;
+	border-bottom:1px solid yellow;
+}
+#bet_submit{
+	position:relative;
+	display:block;
+	font-weight:500;
+	width:90px;
+	left:120px;
+	margin-top:5px;
+	height:30px;
+	font-size:14px;
+}
+/***paraphernalia ***/
+li a.betCancel{
+	background-color:#F00;
+	line-height:10px;
+	color:#FFF; text-decoration:none;
+	border:1px solid #CCC;
+	display:block;
+	width:10px; height:13px;
+	position:absolute;
+	left:218px;
+	text-align:center;
+	font-weight:bold;
+	margin-top:4px;
+}
+li a.betCancel:hover{
+	border-color:#FFF;
+	padding-top:1px; height:13px;
+}
+div .win{
+	width:18px; height:15px; display:block; color:white; background-color:#31962C; font-size:12px;
+	left:15px; position:relative; font-weight:bold;
+	padding-top:3px;
+	border-radius:4px;
+}
+div .win:before{
+	content:"W";
+}
+div .lose{
+	width:18px; height:16px; display:block; color:white; background-color:#F52F2F; font-size:12px;
+	left:15px; position:relative; font-weight:bold;
+	padding-top:2px;
+	border-radius:4px;
+}
+div .lose:before{
+	content:"L";
+}

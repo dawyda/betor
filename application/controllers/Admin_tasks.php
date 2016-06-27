@@ -125,8 +125,66 @@ class Admin_tasks extends CI_Controller {
 		}
 	}
 	
+	public function addPaidTips()
+	{
+		//check session first
+		if(!isset($_SESSION['adlogged']) || $_SESSION['adlogged'] == FALSE)
+		{
+			redirect('admin/');
+		}
+		
+		if($this->input->post("addtip") !== NULL)
+		{
+			$tips = json_decode($this->input->post("data"));
+			//var_dump($tips[0]->match."1");
+			$this->load->model("betor_pt");
+			$added = FALSE;
+			for($i = 0; $i < count($tips); $i++)
+			{
+				if($tips[$i]->match !== ""){
+					$tip = array(
+						"matchdate" => $tips[$i]->matchdate,
+						"game" => $tips[$i]->match,
+						"prediction" => $tips[$i]->prediction,
+						"weight" => $tips[$i]->weight,
+						"odds" => $tips[$i]->odds,
+						"country" => $tips[$i]->country,
+						"league" => $tips[$i]->league,
+						"tip_type" => $tips[$i]->tip_type
+						);
+					$added = $this->betor_pt->add_tip($tip);
+				}
+			}
+			if($added)
+			{
+				$this->output->set_header('Content-Type: application/json');
+				echo '{"success":"1"}';
+			}
+			else{
+				$this->output->set_header('Content-Type: application/json');
+				echo '{"success":"0"}';
+			}			
+		}
+		else{
+			//get tip types
+			$data["options"] = '';
+			$this->load->model("betor_pt");
+			$types = $this->betor_pt->get_tip_types();
+			foreach($types->result() as $type)
+			{
+				$data["options"] .= '<option value="'.$type->id.'">'.$type->name.'</option>';
+			}
+			$this->load->view("add_paid_tip", $data);
+		}
+	}
+	
 	public function listUsers()
 	{
+		//check session first
+		if(!isset($_SESSION['adlogged']) || $_SESSION['adlogged'] == FALSE)
+		{
+			redirect('admin/');
+		}
 		//list all users and another list users created today.
 		$this->load->model("betor_admin_funcs");
 		

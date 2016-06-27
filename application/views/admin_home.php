@@ -38,9 +38,10 @@ if(!isset($_SESSION["adlogged"]) || !$_SESSION["adlogged"])
                 <div class="funcs_body">
                 	<ul>
                     	<li><a href="<?=base_url();?>admin_tasks/addFreeTips/" title="add free tips">Add Free Tips</a></li>
+						<li><a href="<?=base_url();?>admin_tasks/addPaidTips/" title="add vbs">Add Paid Tips</a></li>
                         <li><a href="<?=base_url();?>admin_tasks/setResults/" title="set game results">Set Game Results</a></li>
-                        <li><a href="#" onclick="updateSingle(event)" title="add vbs">Add Value-Bet Tips</a></li>
-                        <li><a href="#" onclick="updateMulti(event)" title="add premium tips">Add Premium Tips</a></li>
+                        <!--<li><a href="#" onclick="updateSingle(event)" title="add vbs">Add Value-Bet Tips</a></li>-->
+                       <!-- <li><a href="#" onclick="updateMulti(event)" title="add premium tips">Add Premium Tips</a></li>-->
                     </ul>
                 </div>
             </div><br />
