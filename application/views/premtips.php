@@ -84,7 +84,7 @@
             	<ul>
                 	<li><a href="<?=base_url();?>">Home</a></li>
                     <li><a href="<?=base_url();?>home/profile">Profile</a></li>
-                    <li><a href="<?=base_url();?>terms">Terms &amp; Conditions</a></li>
+                    <li><a href="<?=base_url();?>tips/redeemed">Redeemed Tips</a></li>
                     <li><a href="<?=base_url();?>about/services">Services</a></li>
                     <li style="margin-right:10px; float:right;"><a href="<?=base_url();?>logout"><b>Logout</b></a></li>
                 </ul>

@@ -50,14 +50,8 @@ if(!isset($_SESSION["adlogged"]) || !$_SESSION["adlogged"])
                 <div class="funcs_body">
                 	<ul>
                     	<li><a href="#" onclick="closeFixtures(event)">User Balances</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)">Incoming Payments</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)" title="recently updated accounts">Recent updates</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)">Payment SMSs</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)">Resolve Payments</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)">Pending Withdrawals</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)">Large Updates</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Audit Accounts</a></li>
-                        <li><a href="#" onclick="closeFixtures(event)">Manual Uploads</a></li>
+                        <li><a href="<?=base_url();?>admin_tasks/manualpay">Manual Uploads</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Payment errors</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Backup Transactions</a></li>
                         <li><a href="#" onclick="closeFixtures(event)">Backup Accounts</a></li>

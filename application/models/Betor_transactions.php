@@ -29,4 +29,16 @@ Class Betor_transactions extends CI_Model {
             return FALSE;
         }
     }
+    
+    //save mismatched pays
+    public function add_mismatched($data)
+    {
+        if($this->db->insert("mismatched_pays", $data))
+        {
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
 }

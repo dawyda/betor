@@ -175,4 +175,20 @@ class Tips extends CI_Controller {
 			echo "Error: Failed to fetch yesterday's!";
 		}		
 	}//end of yesterday's free
+	
+	public function redeemed()
+	{
+		if(!isset($_SESSION['logged']) || $_SESSION['logged'] == FALSE)
+		{
+			redirect('home/');
+		}
+		
+		$this->load->model("betor_pt");
+		$tips = $this->betor_pt->get_redeemed($this->session->userid);
+		$data["html"] = '';
+		foreach ($tips->result() as $tip) {
+			$data["html"] .= '<tr><td>'.(new DateTime($tip->date_redeemed))->format("d-m, h:m A").'</td><td>'.(new DateTime($tip->matchdate))->format("d-m, h:m A").'</td><td>'.$tip->game.'</td><td>'.$tip->name.'</td><td>'.$tip->prediction.'</td><td>'.$tip->weight.'</td><td>'.$tip->odds.'</td><td>'.$tip->result.'</td></tr>';
+		}
+		$this->load->view("redemeed", $data);
+	}
 }

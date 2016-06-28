@@ -198,4 +198,18 @@ class Admin_tasks extends CI_Controller {
 		}
 		$this->load->view("all_users", array("html"=>$table));
 	}
+	
+	/**
+	* @ manual upload of payments
+	**/
+	public function manualpay()
+	{
+		//check session first
+		if(!isset($_SESSION['adlogged']) || $_SESSION['adlogged'] == FALSE)
+		{
+			redirect('admin/');
+		}
+		
+		$this->load->view("manual_pay");
+	}
 }

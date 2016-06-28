@@ -12,7 +12,7 @@ Class Betor_sms extends CI_Model {
         $mesgitems = array();
         
         $msgitems["raw_msg"] = $sms;
-		$msgitems["t_code"] = substr($sms, 0, 9); //get transaction code.
+		$msgitems["t_code"] = substr($sms, 0, 10); //get transaction code.
 		
 		$pos = strpos($sms, "Ksh") + 3;
 		$pos2 = strpos($sms, " from");
@@ -28,7 +28,7 @@ Class Betor_sms extends CI_Model {
 		$msgitems["sender_name"] = substr($sms, $pos, $len); //get name of payer.
 		
 		$pos = strpos($sms, " 07");
-		$msgitems["sender_num"] = "+".substr($sms, $pos, 12); //get number of payer.
+		$msgitems["sender_num"] = substr($sms, $pos + 1, 10); //get number of payer.
         
         return $msgitems;
 	}
@@ -42,6 +42,21 @@ Class Betor_sms extends CI_Model {
         else{
             return FALSE;
         }
+	}
+	
+	/**
+	*@ check duplicate sms func
+	**/
+	public function is_duplicate($code)
+	{
+		$query = $this->db->select("id")->where("t_code",$code)->get("payments");
+		if($query->num_rows() > 0)
+		{
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
 	}
     
     //get SMS to send to clients.

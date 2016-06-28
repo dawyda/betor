@@ -115,7 +115,7 @@ Class Betor_Users extends CI_Model {
 	**/
 	public function update_member_type($user_id, $type)
 	{
-		$this->db->where("id", $userid);
+		$this->db->where("id", $user_id);
 		$this->db->set("m_type",$type);
 		$this->db->update("users");
 	}

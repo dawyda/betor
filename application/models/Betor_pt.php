@@ -20,6 +20,16 @@ Class Betor_pt extends CI_Model {
 		}
 	}
 	
+	public function get_redeemed($user_id)
+	{
+		$query = $this->db->query("SELECT r.date_redeemed,p.matchdate,p.game,t.name, p.prediction,p.weight,p.odds,p.result FROM prem_tips as p INNER JOIN redeemed_tips as r ON p.id = r.tip_id INNER JOIN tip_types t ON p.tip_type = t.id WHERE r.user_id = ".$user_id);
+		if($query->num_rows() > 0)
+		{
+			return $query;
+		}
+		return false;
+	}
+	
 	public function get_tip_types()
 	{
 		$query = $this->db->select("id,name")->get("tip_types");
